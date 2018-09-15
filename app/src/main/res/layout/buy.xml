@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.Buy">
+
     <GridLayout
 
         android:rowCount="2"
@@ -62,5 +63,50 @@
 
     </GridLayout>
 
+    <TextView
+        android:id="@+id/kg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Weight(Kg.)"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="137dp"
+        android:layout_marginVertical="true" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kg"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weight"
+        android:ems="10"
+        android:text="Enter Price(Rs.)"/>
+    <EditText
+        android:id="@+id/rs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:inputType="numberDecimal"/>
+    <EditText
+        android:id="@+id/rent"
+        android:hint="Rent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rs"
+        android:inputType="numberDecimal"/>
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rent">
+        <TextView
+            android:text="Do you want to add Insurence"
+
+            />
+    </CheckBox>
+
+</RelativeLayout>
