@@ -2,8 +2,6 @@ package com.example.rajpa.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -11,11 +9,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.rajpa.dashboard.Activity.Buy;
+import com.example.rajpa.dashboard.Activity.Purchase_payment;
+import com.example.rajpa.dashboard.Activity.Sell_payment;
 
 public class navigation_dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,21 +37,35 @@ public class navigation_dashboard extends AppCompatActivity
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(navigation_dashboard.this, Buy.class);
-                startActivity(i);
+                Intent i1=new Intent(navigation_dashboard.this, Buy.class);
+                startActivity(i1);
+            }
+        });
+        pp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i2=new Intent(navigation_dashboard.this, Purchase_payment.class);
+                startActivity(i2);
+            }
+        });
+        sp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i3=new Intent(navigation_dashboard.this, Sell_payment.class);
+                startActivity(i3);
             }
         });
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-     /*   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        Toolbar toolbar;

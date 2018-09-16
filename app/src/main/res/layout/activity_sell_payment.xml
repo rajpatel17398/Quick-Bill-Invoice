@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
 
         android:layout_alignParentTop="true"
-
-        android:layout_marginTop="127dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="129dp"
         android:background="#FF828EDC"
         android:text="Search"
         tools:layout_editor_absoluteX="132dp"
