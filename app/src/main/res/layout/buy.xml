@@ -16,7 +16,7 @@
         android:columnOrderPreserved="false"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:padding="5dp">
+        android:padding="14dp">
 
 
         <Spinner
@@ -70,8 +70,7 @@
         android:layout_height="wrap_content"
         android:text="Enter Weight(Kg.)"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="170dp"
-        android:textSize="20dp"
+        android:layout_marginTop="137dp"
         />
 
     <EditText
@@ -80,102 +79,35 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/kg"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"/>
+        android:inputType="numberDecimal" />
     <TextView
         android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/weight"
         android:ems="10"
-        android:text="Enter Price(Rs.)"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"/>
+        android:text="Enter Price(Rs.)"/>
     <EditText
         android:id="@+id/rs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/price"
-        android:inputType="numberDecimal"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"/>
+        android:inputType="numberDecimal"/>
     <EditText
         android:id="@+id/rent"
         android:hint="Rent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rs"
-        android:inputType="numberDecimal"
-        android:textSize="20dp"/>
-
+        android:inputType="numberDecimal"/>
     <CheckBox
-        android:id="@+id/checkbox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rent"
-        android:text="Do you want to add insurence"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/rent">
+        <TextView
+            android:text="Do you want to add Insurence"
 
+            />
     </CheckBox>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rent"
-        android:layout_marginLeft="300dp"
-        android:inputType="numberDecimal"
-        android:textSize="20dp"
-        />
-    <TextView
-        android:id="@+id/gst"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="  3% - GST and 2% - SGST applied"
-        android:layout_below="@+id/checkbox"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"/>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rg"
-        android:layout_below="@+id/gst"
-        android:layout_marginTop="10dp">
-
-        <RadioButton
-            android:id="@+id/rd1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="With"
-            android:textSize="20dp"/>
-
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Without"
-            android:textSize="20dp"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/total"
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
-        android:layout_below="@+id/rg"
-        android:layout_marginTop="10dp"
-        android:text="Total"
-        android:textAlignment="center"
-        android:textSize="40dp" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/total"
-        android:text="SUBMIT"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"
-        />
 
 </RelativeLayout>

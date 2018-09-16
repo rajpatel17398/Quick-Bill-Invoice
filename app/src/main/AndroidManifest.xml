@@ -22,7 +22,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".navigation_dashboard" />
-        <activity android:name=".Activity.Buy"></activity>
+        <activity android:name=".Activity.Buy" />
+        <activity android:name=".Sell_payment" />
+        <activity android:name=".Activity.Sell_payment" />
+        <activity android:name=".Activity.Purchase_payment"></activity>
     </application>
 
 </manifest>
