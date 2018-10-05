@@ -67,8 +67,8 @@ public class navigation_dashboard extends AppCompatActivity
         stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i3=new Intent(navigation_dashboard.this, Stock.class);
-                startActivity(i3);
+                Intent i4=new Intent(navigation_dashboard.this, Stock.class);
+                startActivity(i4);
             }
         });
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
