@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Buy">
+
+    <GridLayout
+        android:id="@+id/grid"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_marginTop="20dp"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="5dp">
+
+
+        <Spinner
+            android:id="@+id/choose_party"
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+        <Spinner
+            android:id="@+id/choose_Quality"
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp" />
+
+        <Spinner
+            android:id="@+id/choose_bf"
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+
+
+        <Spinner
+            android:id="@+id/choose_gsm"
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/buton"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/grid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="330dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFFFFF"
+        android:text="ADD"
+        />
+
+    <TextView
+        android:id="@+id/kg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Weight(Kg.)"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="190dp"
+        android:layout_below="@+id/buton"
+        />
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kg"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weight"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:text="Enter Price(Rs.)"/>
+    <EditText
+        android:id="@+id/rs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:layout_marginTop="10dp"
+        android:inputType="numberDecimal"/>
+
+
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rs"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/insurence"
+        android:layout_alignTop="@+id/check"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3.01dp"
+        android:layout_alignLeft="@id/check"
+        android:layout_marginLeft="30dp"
+        android:text="Do you want to add Insurence
+               (Percentage)"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/insu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rs"
+        android:layout_marginLeft="300dp"
+        android:inputType="numberSigned"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/check"
+        android:layout_marginTop="30dp"
+        android:text="3% - GST and 2% - SGST applied"
+        android:textStyle="bold"
+        android:id="@+id/gst"
+        android:textSize="20dp"/>
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gst"
+        android:layout_marginTop="20dp"
+        >
+        <RadioButton
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="With"/>
+        <RadioButton
+            android:id="@+id/r2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Without"/>
+
+    </RadioGroup>
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rg"
+        android:text="TOTAL"
+        android:textSize="50dp"
+        android:textAlignment="center"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFFFFFFF"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/total"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="100dp"
+        android:id="@+id/submit"
+        android:background="@color/colorAccent"
+        android:text="Submit"
+        android:textColor="#ffffff"
+        android:textSize="22dp"/>
+
+</RelativeLayout>
