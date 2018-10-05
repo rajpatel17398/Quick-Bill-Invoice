@@ -14,7 +14,9 @@ import android.view.MenuItem;
 
 import com.example.rajpa.dashboard.Activity.Buy;
 import com.example.rajpa.dashboard.Activity.Purchase_payment;
+import com.example.rajpa.dashboard.Activity.Sell;
 import com.example.rajpa.dashboard.Activity.Sell_payment;
+import com.example.rajpa.dashboard.Activity.Stock;
 
 public class navigation_dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,6 +54,20 @@ public class navigation_dashboard extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent i3=new Intent(navigation_dashboard.this, Sell_payment.class);
+                startActivity(i3);
+            }
+        });
+        sell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i3=new Intent(navigation_dashboard.this, Sell.class);
+                startActivity(i3);
+            }
+        });
+        stock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i3=new Intent(navigation_dashboard.this, Stock.class);
                 startActivity(i3);
             }
         });
