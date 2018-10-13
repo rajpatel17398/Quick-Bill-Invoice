@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rajpa.dashboard.R;
 
@@ -55,6 +56,7 @@ public class Buy extends AppCompatActivity {
                 p = Double.parseDouble(price.getText().toString());
                 t=w*p;
                 total.setText(Double.toString(t));
+                Toast.makeText(Buy.this, "hi", Toast.LENGTH_SHORT).show();
             }
         });
 
