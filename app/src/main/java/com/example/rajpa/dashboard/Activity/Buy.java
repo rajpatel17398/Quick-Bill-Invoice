@@ -2,6 +2,7 @@ package com.example.rajpa.dashboard.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -22,9 +23,11 @@ public class Buy extends AppCompatActivity {
     CheckBox c1;
     RadioGroup rg;
     RadioButton r1,r2;
-
+    double t,w,p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_buy);
         g1=(GridLayout)findViewById(R.id.grid);
         s1=(Spinner)findViewById(R.id.choose_party);
         s2=(Spinner)findViewById(R.id.choose_Quality);
@@ -44,7 +47,16 @@ public class Buy extends AppCompatActivity {
         rg=(RadioGroup) findViewById(R.id.rg);
         r1=(RadioButton)findViewById(R.id.r1);
         r2=(RadioButton) findViewById(R.id.r2);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy);
+
+        price.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                w = Double.parseDouble(weight.getText().toString());
+                p = Double.parseDouble(price.getText().toString());
+                t=w*p;
+                total.setText(Double.toString(t));
+            }
+        });
+
     }
 }
