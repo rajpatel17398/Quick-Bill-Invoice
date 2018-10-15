@@ -6,61 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".Activity.Sell">
 
-        <GridLayout
-            android:id="@+id/grid"
-            android:rowCount="2"
-            android:columnCount="2"
-            android:layout_marginTop="20dp"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="5dp">
+    <GridLayout
+        android:id="@+id/grid"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_marginTop="20dp"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="5dp">
 
 
-            <Spinner
-                android:id="@+id/choose_party"
-                android:layout_height="20dp"
-                android:layout_width="20dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"/>
+        <Spinner
+            android:id="@+id/choose_party"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="15dp"/>
 
-            <Spinner
-                android:id="@+id/choose_Quality"
-                android:layout_height="20dp"
-                android:layout_width="20dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp" />
+        <Spinner
+            android:id="@+id/choose_Quality"
+            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp" />
 
-            <Spinner
-                android:id="@+id/choose_bf"
-                android:layout_height="20dp"
-                android:layout_width="20dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"/>
+        <Spinner
+            android:id="@+id/choose_bf"
+            android:layout_height="20dp"
+            android:layout_width="50dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
 
 
 
-            <Spinner
-                android:id="@+id/choose_gsm"
-                android:layout_height="20dp"
-                android:layout_width="20dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"/>
+        <Spinner
+            android:id="@+id/choose_gsm"
+            android:layout_height="28dp"
+            android:layout_width="30dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
 
-        </GridLayout>
+    </GridLayout>
 
         <Button
             android:id="@+id/buton"
