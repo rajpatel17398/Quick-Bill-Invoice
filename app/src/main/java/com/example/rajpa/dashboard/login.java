@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class login extends AppCompatActivity {
     EditText e1,e2;
-    Button b1;
+    com.spark.submitbutton.SubmitButton b1;
     TextView t1;
 
     String URL= "https://rajpatel17398.000webhostapp.com/login.php";
@@ -49,7 +49,7 @@ public class login extends AppCompatActivity {
         e1=(EditText)findViewById(R.id.editText);
         e2=(EditText)findViewById(R.id.editText2);
 
-        b1=(Button)findViewById(R.id.button);
+        b1=(com.spark.submitbutton.SubmitButton)findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
