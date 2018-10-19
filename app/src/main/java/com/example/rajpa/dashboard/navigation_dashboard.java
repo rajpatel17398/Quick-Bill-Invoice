@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -11,6 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.example.rajpa.dashboard.Activity.Buy;
 import com.example.rajpa.dashboard.Activity.Purchase_payment;
@@ -36,11 +39,15 @@ public class navigation_dashboard extends AppCompatActivity
         history=(CardView)findViewById(R.id.history);
         settings=(CardView)findViewById(R.id.settings);
 
+
+
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent i1=new Intent(navigation_dashboard.this, Buy.class);
                 startActivity(i1);
+
             }
         });
         pp.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +78,7 @@ public class navigation_dashboard extends AppCompatActivity
                 startActivity(i4);
             }
         });
+
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 

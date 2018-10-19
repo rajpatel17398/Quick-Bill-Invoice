@@ -66,6 +66,21 @@
             app:sub_btn_ripple_color="@color/colorAccent"
             app:sub_btn_tick_color="@color/white" />
 
+        <!--<com.unstoppable.submitbuttonview.SubmitButton-->
+            <!--android:id="@+id/button"-->
+            <!--android:layout_width="275dp"-->
+            <!--android:layout_height="294dp"-->
+            <!--android:layout_below="@+id/editText2"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--android:layout_marginBottom="154dp"-->
+            <!--app:buttonColor="@color/colorAccent"-->
+            <!--app:buttonText="Login"-->
+            <!--app:failedColor="#FC8E34"-->
+            <!--app:progressStyle="progress"-->
+            <!--app:succeedColor="@color/colorAccent" />-->
+
 
 
     </RelativeLayout>

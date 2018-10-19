@@ -13,7 +13,7 @@
         android:id="@+id/quality"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="280dp"/>
+        android:layout_marginLeft="180dp"/>
     <Spinner
         android:id="@+id/bf"
         android:layout_below="@+id/quality"
@@ -22,7 +22,7 @@
         android:textAlignment="center"
         android:contextClickable="true"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="280dp"
+        android:layout_marginLeft="180dp"
         android:layout_centerHorizontal="true"/>
     <Spinner
         android:id="@+id/gsm"
@@ -33,7 +33,7 @@
         android:contextClickable="true"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="280dp"/>
+        android:layout_marginLeft="180dp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
