@@ -61,18 +61,177 @@
             android:layout_marginRight="1dp"/>
 
     </GridLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/grid"
+        android:textSize="20dp"
+        android:text="Price"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="200dp"
+        android:textColor="@color/black"
+        android:id="@+id/paisa"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/grid"
+        android:layout_alignLeft="@+id/paisa"
+        android:textSize="20dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="-15dp"
+        android:inputType="numberDecimal"
+        android:id="@+id/sellprice"
+        />
 
-        <Button
-            android:id="@+id/buton"
+    <Button
+        android:id="@+id/sellbutton2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/grid"
+        android:layout_marginLeft="280dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="66dp"
+        android:background="@color/colorPrimary"
+        android:text="ADD"
+        android:textColor="#FFFFFF" />
+    <Button
+        android:id="@+id/sellbutton1"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/grid"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginTop="66dp"
+        android:background="#FF31E711"
+        android:text="ADD PARTY"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/invoice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sellbutton1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:height="35dp"
+        android:text="invoice"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sellbutton1"
+        android:layout_alignLeft="@+id/invoice"
+        android:height="35dp"
+        android:layout_marginTop="50dp"
+        android:text="#number"
+        android:textSize="20dp"
+        android:layout_marginLeft="70dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/invoice1"/>
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/invoice"-->
+
+        <!--android:height="35dp"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:text="Size"-->
+        <!--android:textSize="25dp"-->
+        <!--android:layout_marginLeft="110dp"-->
+        <!--android:layout_marginRight="220dp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:id="@+id/Size"/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/invoice"
+        android:height="35dp"
+        android:layout_marginTop="50dp"
+        android:text="Info"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="300dp"
+        android:textColor="@color/black"
+        android:id="@+id/info"/>
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/invoice"-->
+        <!--android:height="35dp"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:text="Weight"-->
+        <!--android:textSize="25dp"-->
+        <!--android:layout_marginLeft="200dp"-->
+        <!--android:layout_marginRight="128dp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:id="@+id/Wgt"/>-->
+    <TextView
+        android:id="@+id/prc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/invoice"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginRight="0dp"
+        android:height="35dp"
+        android:text="Price"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info"
+        android:id="@+id/g2"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@+id/g2"
+        android:id="@+id/l1">
+
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_below="@+id/grid"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="330dp"
-            android:background="@color/colorPrimary"
-            android:textColor="#FFFFFF"
-            android:text="ADD"
-            />
+            android:layout_height="194dp"
+            android:id="@+id/list1">
+
+
+        </ListView>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/sellcheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/g2"
+        android:layout_marginTop="200dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendmail"
+        android:layout_alignTop="@+id/sellcheck"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3.01dp"
+        android:layout_alignLeft="@id/sellcheck"
+        android:layout_marginLeft="30dp"
+        android:text="Do you want to send mail"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+    <Button
+        android:id="@+id/sellbutton3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sendmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorAccent"
+        android:text="SUBMIT & GENERATE INVOICE"
+        android:textColor="#ffffff"
+        android:textSize="22dp" />
+
 
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
