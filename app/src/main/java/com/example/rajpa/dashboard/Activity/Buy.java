@@ -33,7 +33,7 @@ import java.util.List;
 public class Buy extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     GridLayout g1;
     static Spinner s1,s2,s3,s4;
-    Button b1,b2;
+    Button b1,b2,b3;
     TextView kg,rs,insurence,gst,total;
     EditText weight,price,insu;
     CheckBox c1;
@@ -60,8 +60,9 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         s2.setOnItemSelectedListener(this);
         s3=(Spinner)findViewById(R.id.choose_bf);
         s4=(Spinner) findViewById(R.id.choose_gsm);
-        b1=(Button) findViewById(R.id.buton);
-        b2=(Button) findViewById(R.id.submit);
+        b1=(Button) findViewById(R.id.buybutton1);
+        b2=(Button) findViewById(R.id.buybutton2);
+        b3=(Button) findViewById(R.id.buybutton3);
         kg=(TextView)findViewById(R.id.kg);
         rs=(TextView)findViewById(R.id.price);
         insurence=(TextView)findViewById(R.id.insurence);

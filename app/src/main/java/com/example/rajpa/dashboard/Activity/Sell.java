@@ -1,20 +1,13 @@
 package com.example.rajpa.dashboard.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.GridLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -31,12 +24,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.rajpa.dashboard.R;
 
 public class Sell extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     GridLayout g1;
     static Spinner s1,s2,s3,s4;
-    Button b1;
+    Button b1,b2,b3;
     List<String>party_list=new ArrayList<>();
     List<String>quality_list=new ArrayList<>();
     List<String>bf_list=new ArrayList<>();
@@ -57,7 +49,9 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         s2.setOnItemSelectedListener(this);
         s3=(Spinner)findViewById(R.id.choose_bf);
         s4=(Spinner) findViewById(R.id.choose_gsm);
-        b1=(Button) findViewById(R.id.buton);
+        b1=(Button) findViewById(R.id.sellbutton1);
+        b2=(Button) findViewById(R.id.sellbutton2);
+        b3=(Button) findViewById(R.id.sellbutton3);
         choose_party_spinner();
         choose_quality_spinner();
         choose_bf_spinner();
