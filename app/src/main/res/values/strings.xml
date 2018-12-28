@@ -10,5 +10,9 @@
     <string name="enter_price_rs">Enter Price(Rs.)</string>
     <string name="rent">Rent</string>
     <string name="do_you_want_to_add_insurence">Do you want to add Insurence</string>
+    <string name="home_fragment" />
+    <string name="sport_fragment">Sport Fragment</string>
+    <string name="buy_fragment" />
+    <string name="sell_fragment" />
 
 </resources>

@@ -1,5 +1,7 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -51,6 +53,8 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
     String choose_quality_URL="https://rajpatel17398.000webhostapp.com/stock.php?choose_Quality=choose_Quality";
     String choose_bf_URL="https://rajpatel17398.000webhostapp.com/stock.php?choose_bf=choose_bf";
     String choose_gsm_URL="https://rajpatel17398.000webhostapp.com/stock.php?choose_gsm=choose_gsm";
+    TabLayout tabLayout;
+    ViewPager viewPager;
 
 
     @Override
@@ -63,11 +67,25 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
         s3.setOnItemSelectedListener(this);
         s4=(Spinner) findViewById(R.id.gsm);
         b1=(Button) findViewById(R.id.stockbutton);
+        tabLayout=(TabLayout)findViewById(R.id.tabLayout);
+        viewPager=(ViewPager)findViewById(R.id.viewPager);
+
+        tabLayout.addTab(tabLayout.newTab().setText("Purchase"));
+        tabLayout.addTab(tabLayout.newTab().setText("Sell"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         choose_quality_spinner();
         choose_bf_spinner();
         choose_gsm_spinner();
+
+        final MyAdapter adapter = new MyAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
     }
+
+
     private void choose_quality_spinner() {
         StringRequest request1=new StringRequest(Request.Method.GET, choose_quality_URL, new Response.Listener<String>() {
             @Override
@@ -129,8 +147,8 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(Stock.this, error.toString(), Toast.LENGTH_SHORT).show();
-
             }
+
         });
         RequestQueue queue1=Volley.newRequestQueue(Stock.this);
         queue1.add(request2);
@@ -169,6 +187,7 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
         RequestQueue queue1 = Volley.newRequestQueue(Stock.this);
         queue1.add(request3);
     }
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         Spinner spinner = (Spinner) adapterView;
@@ -185,10 +204,36 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
         {
             Toast.makeText(this, gsm_list.get(i), Toast.LENGTH_SHORT).show();
         }
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
+
+
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
 }
+
+//    final MyAdapter adapter = new MyAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount());
+//        viewPager.setAdapter(adapter);
+//
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

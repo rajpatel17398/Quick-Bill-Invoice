@@ -45,7 +45,33 @@
         android:text="Show"
         android:textColor="#fff"
         android:background="@color/colorAccent"/>
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/stocklinear"
+    android:layout_below="@+id/stockbutton"
+    android:layout_marginTop="30dp"
+    >
 
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1db995"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="355dp"
+        android:layout_height="455dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        tools:ignore="MissingConstraints" />
+</android.support.constraint.ConstraintLayout>
 
 
 </RelativeLayout>
