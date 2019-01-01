@@ -16,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.example.rajpa.dashboard.Activity.Buy;
+import com.example.rajpa.dashboard.Activity.History;
 import com.example.rajpa.dashboard.Activity.Purchase_payment;
 import com.example.rajpa.dashboard.Activity.Sell;
 import com.example.rajpa.dashboard.Activity.Sell_payment;
@@ -75,6 +76,13 @@ public class navigation_dashboard extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent i4=new Intent(navigation_dashboard.this, Stock.class);
+                startActivity(i4);
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i4=new Intent(navigation_dashboard.this, History.class);
                 startActivity(i4);
             }
         });
