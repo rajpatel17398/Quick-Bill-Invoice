@@ -42,7 +42,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.History"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Display"
+            />
+
     </application>
 
 </manifest>

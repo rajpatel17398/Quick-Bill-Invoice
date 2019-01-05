@@ -35,11 +35,12 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
     static Spinner s1,s2,s3,s4;
     Button b1,b2,b3;
     TextView kg,rs,insurence,gst,total;
-    EditText weight,price,insu;
+    EditText weight,price,insu,ggst,sgst;
     CheckBox c1;
     RadioGroup rg;
     RadioButton r1,r2;
-    double t,w,p;
+    double total1,i,cus,tax_amount,total_amount,ins_amount;
+    double t,w,p,tt,s,g,q,ttt;
     List<String>party_list=new ArrayList<>();
     List<String>quality_list=new ArrayList<>();
     List<String>bf_list=new ArrayList<>();
@@ -60,8 +61,8 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         s2.setOnItemSelectedListener(this);
         s3=(Spinner)findViewById(R.id.choose_bf);
         s4=(Spinner) findViewById(R.id.choose_gsm);
-        b1=(Button) findViewById(R.id.buybutton1);
-        b2=(Button) findViewById(R.id.buybutton2);
+//        b1=(Button) findViewById(R.id.buybutton1);
+//        b2=(Button) findViewById(R.id.buybutton2);
         b3=(Button) findViewById(R.id.buybutton3);
         kg=(TextView)findViewById(R.id.kg);
         rs=(TextView)findViewById(R.id.price);
@@ -70,8 +71,10 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         total=(TextView) findViewById(R.id.total);
         weight=(EditText)findViewById(R.id.weight);
         price=(EditText)findViewById(R.id.rs);
-        insu=(EditText) findViewById(R.id.insu);
-        c1=(CheckBox) findViewById(R.id.check);
+
+        ggst=(EditText)findViewById(R.id.ggst_edit_text);
+        sgst=(EditText)findViewById(R.id.sgst_edit_text);
+
         rg=(RadioGroup) findViewById(R.id.rg);
         r1=(RadioButton)findViewById(R.id.r1);
         r2=(RadioButton) findViewById(R.id.r2);
@@ -80,6 +83,11 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         choose_quality_spinner();
         choose_bf_spinner();
         choose_gsm_spinner();
+
+        addListnerOnButtonClick();
+
+
+
 
     /*    price.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +101,120 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         });*/
 
     }
+
+    private void addListnerOnButtonClick() {
+        c1=(CheckBox) findViewById(R.id.check);
+        insu=(EditText) findViewById(R.id.insu);
+
+        /*insu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(c1.isChecked()){
+                    w = Double.parseDouble(weight.getText().toString());
+                    p = Double.parseDouble(price.getText().toString());
+                    i=Double.parseDouble(insu.getText().toString());
+                    t=(w*p*i)/100;
+                    tt=t+(w*p);
+                    total.setText(Double.toString(tt));
+
+                }else {
+                    total.setText(Double.toString(w*p));
+                }
+            }
+        });*/
+
+        total.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                w = Double.parseDouble(weight.getText().toString());
+                p = Double.parseDouble(price.getText().toString());
+
+                int selectedId = rg.getCheckedRadioButtonId();
+
+                r1 = (RadioButton) findViewById(selectedId);
+
+                i = Double.parseDouble(insu.getText().toString());
+               total_amount=p*w;
+                if(c1.isChecked()) {
+
+
+
+                    cus=p*w;
+                    if (selectedId == -1) {
+                        // without
+                        tax_amount=0;
+                        total_amount=cus+tax_amount;
+
+                        total.setText(Double.toString(total_amount));
+                    }else {
+                        // with
+                        s = Double.parseDouble(sgst.getText().toString());
+                        g = Double.parseDouble(ggst.getText().toString());
+                        tax_amount=cus*(s+g)/100;
+                        total.setText(Double.toString(total_amount));
+                    }
+                    }else {
+                    ins_amount=(p*w*i)/100;
+                    cus=(p*w)+ins_amount;
+                    if (selectedId == -1) {
+                        // without
+                        tax_amount=0;
+                        total_amount=cus+tax_amount;
+                        total.setText(Double.toString(total_amount));
+
+                    }else {
+                        // with
+                        s = Double.parseDouble(sgst.getText().toString());
+                        g = Double.parseDouble(ggst.getText().toString());
+                       tax_amount=(cus*(s+g))/100;
+                        total.setText(Double.toString(total_amount));
+                    }
+                }
+
+
+
+
+                /* double i=0;
+               w = Double.parseDouble(weight.getText().toString());
+                p = Double.parseDouble(price.getText().toString());
+                int selectedId = rg.getCheckedRadioButtonId();
+
+                r1 = (RadioButton) findViewById(selectedId);
+                if(c1.isChecked()){
+
+                    i=Double.parseDouble(insu.getText().toString());
+                    t=(w*p*i)/100;
+                    tt=t+(w*p);
+                    total.setText(Double.toString(tt));
+
+                }else if (selectedId == -1) {
+
+                        total.setText(Double.toString(w * p));
+
+                        //Toast.makeText(Buy.this,"Nothing selected", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s = Double.parseDouble(sgst.getText().toString());
+                        g = Double.parseDouble(ggst.getText().toString());
+                        q = ((s / 100) + (g / 100)) * w * p;
+                        t = (w * p * i) / 100;
+                        tt = t + (w * p);
+                        ttt = q + tt;
+                        total.setText(Double.toString(ttt));
+                        //Toast.makeText(Buy.this,r1.getText(), Toast.LENGTH_SHORT).show();
+                    }*/
+
+
+
+
+
+            }
+        });
+
+    }
+
+
+
+
 
     private void choose_quality_spinner() {
         StringRequest request1=new StringRequest(Request.Method.GET, choose_quality_URL, new Response.Listener<String>() {
@@ -252,6 +374,7 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
             Toast.makeText(this, gsm_list.get(i), Toast.LENGTH_SHORT).show();
         }
     }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
