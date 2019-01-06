@@ -32,60 +32,172 @@ import java.util.List;
 
 public class Buy extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     GridLayout g1;
-    static Spinner s1,s2,s3,s4;
-    Button b1,b2,b3;
-    TextView kg,rs,insurence,gst,total;
-    EditText weight,price,insu,ggst,sgst;
+    static Spinner s1, s2, s3, s4;
+    Button b1, b2, b3;
+    TextView kg, rs, insurence, gst, total;
+    EditText weight, price, insu, cgst, sgst;
     CheckBox c1;
     RadioGroup rg;
-    RadioButton r1,r2;
-    double total1,i,cus,tax_amount,total_amount,ins_amount;
-    double t,w,p,tt,s,g,q,ttt;
-    List<String>party_list=new ArrayList<>();
-    List<String>quality_list=new ArrayList<>();
-    List<String>bf_list=new ArrayList<>();
-    List<String>gsm_list=new ArrayList<>();
-    String choose_quality_URL="https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_Quality=choose_Quality";
-    String choose_party_URL="https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_party=choose_party";
-    String choose_bf_URL="https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_bf=choose_bf";
-            String choose_gsm_URL="https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_gsm=choose_gsm";
+    RadioButton r1, r2;
+    double total1, i, cus, tax_amount, total_amount, ins_amount;
+    double t, w, p, tt, s, g, q, ttt;
+    double ta, total_amount1, tax_amount1, final_amount,ins_amount1,cus1,ta1,ta2,tax_amount2,cus2,ins_amount2;
+    List<String> party_list = new ArrayList<>();
+    List<String> quality_list = new ArrayList<>();
+    List<String> bf_list = new ArrayList<>();
+    List<String> gsm_list = new ArrayList<>();
+    String choose_quality_URL = "https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_Quality=choose_Quality";
+    String choose_party_URL = "https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_party=choose_party";
+    String choose_bf_URL = "https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_bf=choose_bf";
+    String choose_gsm_URL = "https://rajpatel17398.000webhostapp.com/buy%20fetch.php?choose_gsm=choose_gsm";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy);
-        g1=(GridLayout)findViewById(R.id.grid);
-        s1=(Spinner)findViewById(R.id.choose_party);
+        g1 = (GridLayout) findViewById(R.id.grid);
+        s1 = (Spinner) findViewById(R.id.choose_party);
         s1.setOnItemSelectedListener(this);
-        s2=(Spinner)findViewById(R.id.choose_Quality);
+        s2 = (Spinner) findViewById(R.id.choose_Quality);
         s2.setOnItemSelectedListener(this);
-        s3=(Spinner)findViewById(R.id.choose_bf);
-        s4=(Spinner) findViewById(R.id.choose_gsm);
+        s3 = (Spinner) findViewById(R.id.choose_bf);
+        s4 = (Spinner) findViewById(R.id.choose_gsm);
 //        b1=(Button) findViewById(R.id.buybutton1);
 //        b2=(Button) findViewById(R.id.buybutton2);
-        b3=(Button) findViewById(R.id.buybutton3);
-        kg=(TextView)findViewById(R.id.kg);
-        rs=(TextView)findViewById(R.id.price);
-        insurence=(TextView)findViewById(R.id.insurence);
-        gst=(TextView)findViewById(R.id.gst);
-        total=(TextView) findViewById(R.id.total);
-        weight=(EditText)findViewById(R.id.weight);
-        price=(EditText)findViewById(R.id.rs);
+        b3 = (Button) findViewById(R.id.buybutton3);
+        kg = (TextView) findViewById(R.id.kg);
+        rs = (TextView) findViewById(R.id.price);
+        insurence = (TextView) findViewById(R.id.insurence);
+        gst = (TextView) findViewById(R.id.gst);
+        total = (TextView) findViewById(R.id.total);
+        weight = (EditText) findViewById(R.id.weight);
+        price = (EditText) findViewById(R.id.rs);
 
-        ggst=(EditText)findViewById(R.id.ggst_edit_text);
-        sgst=(EditText)findViewById(R.id.sgst_edit_text);
+        cgst = (EditText) findViewById(R.id.cgst_edit_text);
+        sgst = (EditText) findViewById(R.id.sgst_edit_text);
 
-        rg=(RadioGroup) findViewById(R.id.rg);
-        r1=(RadioButton)findViewById(R.id.r1);
-        r2=(RadioButton) findViewById(R.id.r2);
+        rg = (RadioGroup) findViewById(R.id.rg);
+        r1 = (RadioButton) findViewById(R.id.r1);
+        r2 = (RadioButton) findViewById(R.id.r2);
+        c1 = (CheckBox) findViewById(R.id.check);
+        insu = (EditText) findViewById(R.id.insu);
 
         choose_party_spinner();
         choose_quality_spinner();
         choose_bf_spinner();
         choose_gsm_spinner();
 
-        addListnerOnButtonClick();
+//        addListnerOnButtonClick();
 
+
+        total.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                w = Double.parseDouble(weight.getText().toString());
+                p = Double.parseDouble(price.getText().toString());
+                ta = w * p;
+                total.setText(Double.toString(ta));
+
+
+                if (c1.isChecked()) {
+
+                    p = Double.parseDouble(price.getText().toString());
+                    w = Double.parseDouble(weight.getText().toString());
+                    i = Double.parseDouble(insu.getText().toString());
+
+                    ins_amount = (p * w * i) / 100;
+                    cus = ins_amount + (p * w);
+                    total.setText(Double.toString(cus));
+//                    int selectedId = rg.getCheckedRadioButtonId();
+//                    rg = (RadioGroup) findViewById(selectedId);
+
+                    r1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //with
+                            w = Double.parseDouble(weight.getText().toString());
+                            p = Double.parseDouble(price.getText().toString());
+                            i = Double.parseDouble(insu.getText().toString());
+
+                            ins_amount1 = (w * p * i) / 100;
+                            cus1 = ins_amount1 + (w * p);
+
+                            s = Double.parseDouble(sgst.getText().toString());
+                            g = Double.parseDouble(cgst.getText().toString());
+                            tax_amount = cus1 * (s + g) / 100;
+                            final_amount = tax_amount + cus1;
+
+                            total.setText(Double.toString(final_amount));
+                        }
+                    });
+                    r2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // without
+//
+                            w = Double.parseDouble(weight.getText().toString());
+                            p = Double.parseDouble(price.getText().toString());
+                            i = Double.parseDouble(insu.getText().toString());
+
+                            ins_amount2 = (w * p * i) / 100;
+                            cus2 = ins_amount2 + (w * p);
+
+//                               tax_amount1 = 0;
+//                               total_amount = tax_amount1 + cus2;
+
+                            total.setText(Double.toString(cus2));
+                        }
+                    });
+
+//
+
+//                    if (selectedId == -1) {
+//                        Toast.makeText(Buy.this, "choose with or without", Toast.LENGTH_SHORT).show();
+//                    }
+////
+////                    selectedId = rg.getCheckedRadioButtonId();
+////                    r2 = (RadioButton) findViewById(selectedId);
+//
+//                    else {
+//
+//                    }
+                }
+                else {
+//                    int selectedId = rg.getCheckedRadioButtonId();
+//                    r1 = (RadioButton) findViewById(selectedId);
+                    r1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //with
+
+                            w = Double.parseDouble(weight.getText().toString());
+                            p = Double.parseDouble(price.getText().toString());
+                            s = Double.parseDouble(sgst.getText().toString());
+                            g = Double.parseDouble(cgst.getText().toString());
+                            ta1 = w * p;
+                            tax_amount2 = ta1 * (s + g) / 100;
+                            total_amount1 = tax_amount2 + ta1;
+                            total.setText(Double.toString(total_amount1));
+                        }
+                    });
+
+                    r2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            w = Double.parseDouble(weight.getText().toString());
+                            p = Double.parseDouble(price.getText().toString());
+                            ta2 = w * p;
+                            total.setText(Double.toString(ta2));
+                        }
+                    });
+
+
+                }
+            }
+        });
+    }
+//                                                     end
 
 
 
@@ -100,76 +212,159 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
             }
         });*/
 
-    }
-
-    private void addListnerOnButtonClick() {
-        c1=(CheckBox) findViewById(R.id.check);
-        insu=(EditText) findViewById(R.id.insu);
-
-        /*insu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(c1.isChecked()){
-                    w = Double.parseDouble(weight.getText().toString());
-                    p = Double.parseDouble(price.getText().toString());
-                    i=Double.parseDouble(insu.getText().toString());
-                    t=(w*p*i)/100;
-                    tt=t+(w*p);
-                    total.setText(Double.toString(tt));
-
-                }else {
-                    total.setText(Double.toString(w*p));
-                }
-            }
-        });*/
-
-        total.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                w = Double.parseDouble(weight.getText().toString());
-                p = Double.parseDouble(price.getText().toString());
-
-                int selectedId = rg.getCheckedRadioButtonId();
-
-                r1 = (RadioButton) findViewById(selectedId);
-
-                i = Double.parseDouble(insu.getText().toString());
-               total_amount=p*w;
-                if(c1.isChecked()) {
 
 
 
-                    cus=p*w;
-                    if (selectedId == -1) {
-                        // without
-                        tax_amount=0;
-                        total_amount=cus+tax_amount;
 
-                        total.setText(Double.toString(total_amount));
-                    }else {
-                        // with
-                        s = Double.parseDouble(sgst.getText().toString());
-                        g = Double.parseDouble(ggst.getText().toString());
-                        tax_amount=cus*(s+g)/100;
-                        total.setText(Double.toString(total_amount));
-                    }
-                    }else {
-                    ins_amount=(p*w*i)/100;
-                    cus=(p*w)+ins_amount;
-                    if (selectedId == -1) {
-                        // without
-                        tax_amount=0;
-                        total_amount=cus+tax_amount;
-                        total.setText(Double.toString(total_amount));
+//    public void addListnerOnButtonClick() {
+//        c1=(CheckBox) findViewById(R.id.check);
+//        insu=(EditText) findViewById(R.id.insu);
+//        rg=(RadioGroup) findViewById(R.id.rg);
+//        r1=(RadioButton)findViewById(R.id.r1);
+//        r2=(RadioButton) findViewById(R.id.r2);
+//
+//        /*insu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(c1.isChecked()){
+//                    w = Double.parseDouble(weight.getText().toString());
+//                    p = Double.parseDouble(price.getText().toString());
+//                    i=Double.parseDouble(insu.getText().toString());
+//                    t=(w*p*i)/100;
+//                    tt=t+(w*p);
+//                    total.setText(Double.toString(tt));
+//
+//                }else {
+//                    total.setText(Double.toString(w*p));
+//                }
+//            }
+//        });*/
+//
+//        total.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                w = Double.parseDouble(weight.getText().toString());
+//                p = Double.parseDouble(price.getText().toString());
+//                i = Double.parseDouble(insu.getText().toString());
+//                total_amount=p*w;
+//                total.setText(Double.toString(total_amount));
+//
+//                int selectedId = rg.getCheckedRadioButtonId();
+//                rg = (RadioGroup) findViewById(selectedId);
+//
+//
+//
+//
+//                if(c1.isChecked()) {
+////                    int selectedId = rg.getCheckedRadioButtonId();
+////
+////                    r2 = (RadioButton) findViewById(selectedId);
+//
+//                    w = Double.parseDouble(weight.getText().toString());
+//                    p = Double.parseDouble(price.getText().toString());
+//                    i = Double.parseDouble(insu.getText().toString());
+//
+//                    ins_amount=(p*w*i)/100;
+//                    cus=(p*w)+ins_amount;
+//                    total.setText(Double.toString(total_amount));
+//
+//                    if (selectedId == -1) {
+//                       int rgCheckedRadioButtonId = rg.getCheckedRadioButtonId();
+//
+//                        r2 = (RadioButton) findViewById(selectedId);
+//                        // without
+//                        w = Double.parseDouble(weight.getText().toString());
+//                        p = Double.parseDouble(price.getText().toString());
+//                        i = Double.parseDouble(insu.getText().toString());
+//
+//                        ins_amount=(p*w*i)/100;
+//                        cus=(p*w)+ins_amount;
+//                        tax_amount=0;
+//                        total_amount=cus+tax_amount;
+//                        total.setText(Double.toString(total_amount));
+//
+//                    }else {
+//                        // with
+//                        int rgCheckedRadioButtonId = rg.getCheckedRadioButtonId();
+//
+//                        r1 = (RadioButton) findViewById(selectedId);
+//                        s = Double.parseDouble(sgst.getText().toString());
+//                        g = Double.parseDouble(cgst.getText().toString());
+//                        w = Double.parseDouble(weight.getText().toString());
+//                        p = Double.parseDouble(price.getText().toString());
+//                        i = Double.parseDouble(insu.getText().toString());
+//
+//                        ins_amount=(p*w*i)/100;
+//                        cus=(p*w)+ins_amount;
+//                       tax_amount=(cus*(s+g))/100;
+//                        total.setText(Double.toString(total_amount));
+//                    }
+//
+//
+////                    cus=p*w;
+////                    if (selectedId == -1) {
+////                        // without
+////                        tax_amount=0;
+////                        total_amount=cus+tax_amount;
+////
+////                        total.setText(Double.toString(total_amount));
+////                    }else {
+////                        // with
+////                        s = Double.parseDouble(sgst.getText().toString());
+////                        g = Double.parseDouble(ggst.getText().toString());
+////                        tax_amount=cus*(s+g)/100;
+////                        total.setText(Double.toString(total_amount));
+////                    }
+//                }
 
-                    }else {
-                        // with
-                        s = Double.parseDouble(sgst.getText().toString());
-                        g = Double.parseDouble(ggst.getText().toString());
-                       tax_amount=(cus*(s+g))/100;
-                        total.setText(Double.toString(total_amount));
-                    }
-                }
+//    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                else {
+//                    int rgCheckedRadioButtonId = rg.getCheckedRadioButtonId();
+//                    rg = (RadioGroup) findViewById(selectedId);
+//                    w = Double.parseDouble(weight.getText().toString());
+//                    p = Double.parseDouble(price.getText().toString());
+//                    cus=p*w;
+//                    if (selectedId == -1) {
+//                       int rgCheckedRadioButtonId1 = rg.getCheckedRadioButtonId();
+//
+//                        r2 = (RadioButton) findViewById(selectedId);
+//                        w = Double.parseDouble(weight.getText().toString());
+//                        p = Double.parseDouble(price.getText().toString());
+//                        cus=p*w;
+//                        // without
+//                        tax_amount=0;
+//                        total_amount=cus+tax_amount;
+//
+//                        total.setText(Double.toString(total_amount));
+//                    }else {
+//                        // with
+//                        int rgCheckedRadioButtonId1 = rg.getCheckedRadioButtonId();
+//                        r1 = (RadioButton) findViewById(selectedId);
+//                        w = Double.parseDouble(weight.getText().toString());
+//                        p = Double.parseDouble(price.getText().toString());
+//                        cus=p*w;
+//                        s = Double.parseDouble(sgst.getText().toString());
+//                        g = Double.parseDouble(cgst.getText().toString());
+//                        tax_amount=cus*(s+g)/100;
+//                        total.setText(Double.toString(total_amount));
+//                    }
+//                    ins_amount=(p*w*i)/100;
+//                    cus=(p*w)+ins_amount;
+//                    if (selectedId == -1) {
+//                        // without
+//                        tax_amount=0;
+//                        total_amount=cus+tax_amount;
+//                        total.setText(Double.toString(total_amount));
+//
+//                    }else {
+//                        // with
+//                        s = Double.parseDouble(sgst.getText().toString());
+//                        g = Double.parseDouble(ggst.getText().toString());
+//                       tax_amount=(cus*(s+g))/100;
+//                        total.setText(Double.toString(total_amount));
+//                    }
+//                }
 
 
 
@@ -207,10 +402,10 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
 
 
 
-            }
-        });
-
-    }
+//            }
+//        });
+//
+//    }
 
 
 
