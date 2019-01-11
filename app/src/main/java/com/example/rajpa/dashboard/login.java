@@ -25,6 +25,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.spark.submitbutton.SubmitButton;
+//import com.unstoppable.submitbuttonview.SubmitButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +37,7 @@ import java.util.Map;
 
 public class login extends AppCompatActivity {
     EditText e1,e2;
-    com.spark.submitbutton.SubmitButton b1;
+    SubmitButton b1;
     TextView t1;
 
     String URL= "https://rajpatel17398.000webhostapp.com/login.php";
@@ -61,6 +63,7 @@ public class login extends AppCompatActivity {
                     public void onResponse(String response) {
                         if (response.trim().equals("success")){
                             Toast.makeText(login.this, "Success", Toast.LENGTH_SHORT).show();
+
                             Intent intent=new Intent(login.this,navigation_dashboard.class);
                             startActivity(intent);
                         }else {

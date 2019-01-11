@@ -21,6 +21,7 @@ import com.example.rajpa.dashboard.Activity.History;
 import com.example.rajpa.dashboard.Activity.Purchase_payment;
 import com.example.rajpa.dashboard.Activity.Sell;
 import com.example.rajpa.dashboard.Activity.Sell_payment;
+import com.example.rajpa.dashboard.Activity.Settings;
 import com.example.rajpa.dashboard.Activity.Stock;
 
 public class navigation_dashboard extends AppCompatActivity
@@ -96,6 +97,13 @@ public class navigation_dashboard extends AppCompatActivity
                 startActivity(i4);
             }
         });
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i4=new Intent(navigation_dashboard.this, Settings.class);
+                startActivity(i4);
+            }
+        });
 
 
 
@@ -160,19 +168,23 @@ public class navigation_dashboard extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_username) {
+            Intent intent=new Intent(navigation_dashboard.this,registration.class);
+            startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_addstock) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_manage) {
 
-        } /*else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_manage1) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_logout) {
+            Intent intent=new Intent(navigation_dashboard.this,login.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_send) {
+        }
 
-        }*/
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

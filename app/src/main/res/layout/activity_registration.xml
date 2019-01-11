@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registration">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registration_name"
+        android:hint="Name"
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textAlignment="gravity"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registration_email"
+        android:layout_below="@+id/registration_name"
+        android:hint="Email Id"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textAlignment="gravity"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registration_password"
+        android:layout_below="@+id/registration_email"
+        android:hint="Password"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textAlignment="gravity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registration_button"
+        android:layout_below="@+id/registration_password"
+        android:layout_marginTop="20dp"
+        android:text="Submit"
+        android:background="@color/colorAccent"
+        android:gravity="center"/>
+</RelativeLayout>

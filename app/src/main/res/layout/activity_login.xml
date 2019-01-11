@@ -67,7 +67,7 @@
             app:sub_btn_tick_color="@color/white" />
 
         <!--<com.unstoppable.submitbuttonview.SubmitButton-->
-            <!--android:id="@+id/button"-->
+            <!--android:id="@+id/login_button1"-->
             <!--android:layout_width="275dp"-->
             <!--android:layout_height="294dp"-->
             <!--android:layout_below="@+id/editText2"-->

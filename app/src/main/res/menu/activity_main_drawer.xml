@@ -6,22 +6,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/user"
+            android:id="@+id/nav_username"
+            android:icon="@drawable/user1"
             android:title="Raj" />
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/home"
-            android:title="Home" />
-        <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_addstock"
             android:icon="@drawable/addstock"
             android:title="Add Stock" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@mipmap/ic_parties"
-            android:title="Add Parties" />
+            android:icon="@drawable/parties"
+            android:title="Add Purchase Parties" />
+        <item
+            android:id="@+id/nav_manage1"
+            android:icon="@drawable/parties"
+            android:title="Add Sell Parties" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/close"
+            android:title="Log Out" />
     </group>
+
+
 
     <!--<item android:title="Communicate">-->
         <!--<menu>-->
