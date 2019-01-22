@@ -69,7 +69,9 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         s2 = (Spinner) findViewById(R.id.choose_Quality);
         s2.setOnItemSelectedListener(this);
         s3 = (Spinner) findViewById(R.id.choose_bf);
+        s3.setOnItemSelectedListener(this);
         s4 = (Spinner) findViewById(R.id.choose_gsm);
+        s4.setOnItemSelectedListener(this);
 //        b1=(Button) findViewById(R.id.buybutton1);
 //        b2=(Button) findViewById(R.id.buybutton2);
         b3 = (Button) findViewById(R.id.buybutton3);
@@ -115,7 +117,7 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
                     i = Double.parseDouble(insu.getText().toString());
 
                     ins_amount = (p * w * i) / 100;
-                    cus = ins_amount + (p * w);
+                    cus =(p * w)+ins_amount;
                     total.setText(Double.toString(cus));
 //                    int selectedId = rg.getCheckedRadioButtonId();
 //                    rg = (RadioGroup) findViewById(selectedId);
@@ -133,7 +135,7 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
 
                             s = Double.parseDouble(sgst.getText().toString());
                             g = Double.parseDouble(cgst.getText().toString());
-                            tax_amount = cus1 * (s + g) / 100;
+                            tax_amount = cus1 *((s + g) / 100);
                             final_amount = tax_amount + cus1;
 
                             total.setText(Double.toString(final_amount));
@@ -408,22 +410,22 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         if(spinner.getId() == R.id.choose_party)
         {
             spin_company=party_list.get(i);
-//            Toast.makeText(this, party_list.get(i), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, party_list.get(i), Toast.LENGTH_SHORT).show();
         }
         else if(spinner.getId() == R.id.choose_Quality)
         {
             spin_quality=quality_list.get(i);
-//            Toast.makeText(this, quality_list.get(i), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, quality_list.get(i), Toast.LENGTH_SHORT).show();
         }
         else if(spinner.getId() == R.id.choose_bf)
         {
             spin_bf=bf_list.get(i);
-//            Toast.makeText(this, bf_list.get(i), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, bf_list.get(i), Toast.LENGTH_SHORT).show();
         }
         else if(spinner.getId() == R.id.choose_gsm)
         {
             spin_gsm=gsm_list.get(i);
-//            Toast.makeText(this, gsm_list.get(i), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, gsm_list.get(i), Toast.LENGTH_SHORT).show();
         }
     }
 

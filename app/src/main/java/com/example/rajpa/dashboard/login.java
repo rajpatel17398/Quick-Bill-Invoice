@@ -57,39 +57,53 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 final String mail=e1.getText().toString();
                 final String pass=e2.getText().toString();
+//                String name=registration_name.getText().toString();
+//                String email=registration_email.getText().toString();
+//                String pass=registration_password.getText().toString();
 
-                StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        if (response.trim().equals("success")){
-                            Toast.makeText(login.this, "Success", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(mail)){
+                    Toast.makeText(login.this,"Fill Name",Toast.LENGTH_LONG).show();
+                }
+                else if (TextUtils.isEmpty(pass)) {
+                    Toast.makeText(login.this, "Fill Email", Toast.LENGTH_LONG).show();
+                }
 
-                            Intent intent=new Intent(login.this,navigation_dashboard.class);
-                            startActivity(intent);
-                        }else {
-                            Toast.makeText(login.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+
+                else {
+
+
+                    StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            if (response.trim().equals("success")) {
+                                Toast.makeText(login.this, "Success", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(login.this, navigation_dashboard.class);
+                                intent.putExtra("email", mail);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(login.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(login.this, error.toString(), Toast.LENGTH_SHORT).show();
 
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(login.this, error.toString(), Toast.LENGTH_SHORT).show();
-
-                    }
-                })
-                {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String>param=new HashMap<>();
-                        param.put("email",mail);
-                        param.put("password",pass);
-                        return param;
-                    }
-                };
-                RequestQueue queue= Volley.newRequestQueue(login.this);
-                queue.add(request);
-
+                        }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> param = new HashMap<>();
+                            param.put("email", mail);
+                            param.put("password", pass);
+                            return param;
+                        }
+                    };
+                    RequestQueue queue = Volley.newRequestQueue(login.this);
+                    queue.add(request);
+                }
             }
 
 

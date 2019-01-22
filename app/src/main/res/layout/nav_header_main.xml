@@ -30,9 +30,9 @@
         android:textColor="#FF060606" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:textColor="#FF060606"
         android:text="@string/nav_header_subtitle" />
 

@@ -8,18 +8,22 @@
         <item
             android:id="@+id/nav_username"
             android:icon="@drawable/user1"
-            android:title="Raj" />
+            android:title="Registration" />
 
         <item
             android:id="@+id/nav_addstock"
             android:icon="@drawable/addstock"
             android:title="Add Stock" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_remove_stock"
+            android:icon="@drawable/addstock"
+            android:title="Remove Stock" />
+        <item
+            android:id="@+id/nav_purchaseparties"
             android:icon="@drawable/parties"
             android:title="Add Purchase Parties" />
         <item
-            android:id="@+id/nav_manage1"
+            android:id="@+id/nav_sellparties"
             android:icon="@drawable/parties"
             android:title="Add Sell Parties" />
         <item

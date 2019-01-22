@@ -28,6 +28,7 @@ import java.util.List;
 public class Sell extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     GridLayout g1;
     static Spinner s1,s2,s3,s4;
+    String spin_company,spin_quality,spin_bf,spin_gsm;
     Button b1,b2,b3;
     List<String>party_list=new ArrayList<>();
     List<String>quality_list=new ArrayList<>();
@@ -42,20 +43,31 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
+       // spin_company=findViewById(R.id.pa)
         g1=(GridLayout)findViewById(R.id.grid);
         s1=(Spinner)findViewById(R.id.choose_party);
         s1.setOnItemSelectedListener(this);
         s2=(Spinner)findViewById(R.id.choose_Quality);
         s2.setOnItemSelectedListener(this);
         s3=(Spinner)findViewById(R.id.choose_bf);
+        s3.setOnItemSelectedListener(this);
         s4=(Spinner) findViewById(R.id.choose_gsm);
-        b1=(Button) findViewById(R.id.sellbutton1);
+        s4.setOnItemSelectedListener(this);
+//        b1=(Button) findViewById(R.id.sellbutton1);
         b2=(Button) findViewById(R.id.sellbutton2);
         b3=(Button) findViewById(R.id.sellbutton3);
+
         choose_party_spinner();
         choose_quality_spinner();
         choose_bf_spinner();
         choose_gsm_spinner();
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Sell.this, spin_quality+"\n"+spin_bf+"\n"+spin_gsm, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
@@ -203,18 +215,22 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         Spinner spinner = (Spinner) adapterView;
         if(spinner.getId() == R.id.choose_party)
         {
+            spin_company=party_list.get(i);
             Toast.makeText(this, party_list.get(i), Toast.LENGTH_SHORT).show();
         }
-        else if(spinner.getId() == R.id.choose_Quality)
+         if(spinner.getId() == R.id.choose_Quality)
         {
+            spin_quality=quality_list.get(i);
             Toast.makeText(this, quality_list.get(i), Toast.LENGTH_SHORT).show();
         }
-        else if(spinner.getId() == R.id.choose_bf)
+         if(spinner.getId() == R.id.choose_bf)
         {
+            spin_bf=bf_list.get(i);
             Toast.makeText(this, bf_list.get(i), Toast.LENGTH_SHORT).show();
         }
-        else if(spinner.getId() == R.id.choose_gsm)
+        if(spinner.getId() == R.id.choose_gsm)
         {
+            spin_gsm=gsm_list.get(i);
             Toast.makeText(this, gsm_list.get(i), Toast.LENGTH_SHORT).show();
         }
     }

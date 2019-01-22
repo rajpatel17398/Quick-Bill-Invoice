@@ -24,7 +24,8 @@
         android:textSize="20dp"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:textAlignment="gravity"/>
+        android:textAlignment="gravity"
+        android:inputType="textEmailAddress"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +35,8 @@
         android:textSize="20dp"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:textAlignment="gravity"/>
+        android:textAlignment="gravity"
+        android:inputType="textWebPassword"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,5 +45,7 @@
         android:layout_marginTop="20dp"
         android:text="Submit"
         android:background="@color/colorAccent"
-        android:gravity="center"/>
+        android:gravity="center"
+        />
+
 </RelativeLayout>

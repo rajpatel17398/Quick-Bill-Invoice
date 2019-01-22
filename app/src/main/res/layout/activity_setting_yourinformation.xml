@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.setting_yourinformation">
+
+    <EditText
+        android:id="@+id/your_information_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Company Name"/>
+
+    <EditText
+        android:id="@+id/your_information_companyaddress"
+        android:layout_below="@+id/your_information_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Company Address"/>
+
+    <EditText
+        android:id="@+id/your_information_companynumber1"
+        android:layout_below="@+id/your_information_companyaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Company Number1"/>
+
+    <EditText
+        android:id="@+id/your_information_companynumber2"
+        android:layout_below="@+id/your_information_companynumber1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Company Number2"/>
+
+    <EditText
+        android:id="@+id/your_information_companyemail"
+        android:layout_below="@+id/your_information_companynumber2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Company Email"/>
+
+    <Button
+        android:id="@+id/your_information_button"
+        android:layout_below="@+id/your_information_companyemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="50dp"
+        android:background="#f1f1"
+        />
+
+</RelativeLayout>

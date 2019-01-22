@@ -2,7 +2,9 @@ package com.example.rajpa.dashboard;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -14,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rajpa.dashboard.Activity.Buy;
 import com.example.rajpa.dashboard.Activity.Display;
@@ -27,11 +31,17 @@ import com.example.rajpa.dashboard.Activity.Stock;
 public class navigation_dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     CardView buy,sell,stock,display,pp,sp,history,settings;
+    TextView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String ee=getIntent().getStringExtra("email");
+
+
+
 
         buy=(CardView)findViewById(R.id.buy);
         sell=(CardView)findViewById(R.id.sell);
@@ -43,6 +53,8 @@ public class navigation_dashboard extends AppCompatActivity
         settings=(CardView)findViewById(R.id.settings);
 
 
+
+       // email.setText(ee);
 
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,10 +136,16 @@ public class navigation_dashboard extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        email=(TextView)headerView.findViewById(R.id.email);
+        
+        email.setText(ee);
+
     }
 
     @Override
@@ -144,6 +162,7 @@ public class navigation_dashboard extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
@@ -162,6 +181,7 @@ public class navigation_dashboard extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -171,17 +191,31 @@ public class navigation_dashboard extends AppCompatActivity
         if (id == R.id.nav_username) {
             Intent intent=new Intent(navigation_dashboard.this,registration.class);
             startActivity(intent);
+
             // Handle the camera action
-        } else if (id == R.id.nav_addstock) {
+        }
+        else if (id == R.id.nav_addstock)
+        {
 
-        } else if (id == R.id.nav_manage) {
+        }
+        else if (id == R.id.nav_remove_stock)
+        {
 
-        } else if (id == R.id.nav_manage1) {
+        }
+        else if (id == R.id.nav_purchaseparties)
+        {
 
-        } else if (id == R.id.nav_logout) {
+
+        }
+        else if (id == R.id.nav_sellparties)
+        {
+
+        }
+        else if (id == R.id.nav_logout)
+        {
             Intent intent=new Intent(navigation_dashboard.this,login.class);
             startActivity(intent);
-
+            finishAffinity();
         }
 
 
