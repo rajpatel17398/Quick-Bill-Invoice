@@ -196,20 +196,24 @@ public class navigation_dashboard extends AppCompatActivity
         }
         else if (id == R.id.nav_addstock)
         {
-
+            Intent intent=new Intent(navigation_dashboard.this,Add_stock.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_remove_stock)
         {
-
+            Intent intent=new Intent(navigation_dashboard.this,Remove_stock.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_purchaseparties)
         {
-
+            Intent intent=new Intent(navigation_dashboard.this,Add_purchase_parties.class);
+            startActivity(intent);
 
         }
         else if (id == R.id.nav_sellparties)
         {
-
+            Intent intent=new Intent(navigation_dashboard.this,Add_sell_parties.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_logout)
         {

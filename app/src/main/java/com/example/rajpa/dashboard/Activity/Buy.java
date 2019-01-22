@@ -23,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.rajpa.dashboard.Add_stock;
 import com.example.rajpa.dashboard.R;
 import com.example.rajpa.dashboard.login;
 import com.example.rajpa.dashboard.navigation_dashboard;
@@ -218,8 +219,8 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
                         if (response.trim().equals("success")){
                             Toast.makeText(Buy.this, "Success", Toast.LENGTH_SHORT).show();
 
-//                            Intent intent=new Intent(buy.this,navigation_dashboard.class);
-//                            startActivity(intent);
+                            Intent intent=new Intent(Buy.this,Add_stock.class);
+                            startActivity(intent);
                         }else {
                             Toast.makeText(Buy.this, "Something Wrong", Toast.LENGTH_SHORT).show();
                         }

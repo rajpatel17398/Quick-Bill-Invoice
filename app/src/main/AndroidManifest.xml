@@ -11,30 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<activity-->
-            <!--android:name=".login"-->
-            <!--android:label="@string/app_name"-->
-            <!--android:screenOrientation="portrait"-->
-            <!--android:theme="@style/AppTheme.NoActionBar">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
+        <!-- <activity -->
+        <!-- android:name=".login" -->
+        <!-- android:label="@string/app_name" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".navigation_dashboard"
             android:screenOrientation="portrait">
+            android:label="dashbord"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             android:label="dashbord"
-
-
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.Buy"
@@ -60,7 +58,11 @@
         <activity android:name=".Activity.setting_viewsellparties" />
         <activity android:name=".Activity.setting_viewpurchaseparties" />
         <activity android:name=".Activity.setting_addqualitybfgsm" />
-        <activity android:name=".Activity.setting_yourinformation"></activity>
+        <activity android:name=".Activity.setting_yourinformation" />
+        <activity android:name=".Add_stock" />
+        <activity android:name=".Remove_stock" />
+        <activity android:name=".Add_purchase_parties" />
+        <activity android:name=".Add_sell_parties"></activity>
     </application>
 
 </manifest>

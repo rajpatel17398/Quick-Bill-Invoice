@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_sell_parties">
+
+    <EditText
+        android:id="@+id/sellparties_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Company Name"/>
+
+    <EditText
+        android:id="@+id/sellparties_party1name"
+        android:layout_below="@+id/sellparties_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="party1 Name"/>
+
+    <EditText
+        android:id="@+id/sellparties_mobile"
+        android:layout_below="@+id/sellparties_party1name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Mobile1"/>
+
+    <EditText
+        android:id="@+id/sellparties_party2name"
+        android:layout_below="@+id/sellparties_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Party2 Name"/>
+
+    <EditText
+        android:id="@+id/sellparties_mobile2"
+        android:layout_below="@+id/sellparties_party2name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Mobile2"/>
+    <EditText
+        android:id="@+id/sellparties_email"
+        android:layout_below="@+id/sellparties_mobile2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Email"/>
+
+    <EditText
+        android:id="@+id/sellparties_gstno"
+        android:layout_below="@+id/sellparties_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="GST No"/>
+
+    <EditText
+        android:id="@+id/sellparties_panno"
+        android:layout_below="@+id/sellparties_gstno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="PAN No"/>
+
+    <EditText
+        android:id="@+id/sellparties_address"
+        android:layout_below="@+id/sellparties_panno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Address"/>
+
+
+    <Button
+        android:id="@+id/sellparties_button"
+        android:layout_below="@+id/sellparties_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="50dp"
+        android:background="#e711ff"
+        />
+
+</RelativeLayout>

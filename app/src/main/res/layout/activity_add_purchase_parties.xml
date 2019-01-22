@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_purchase_parties">
+    <EditText
+        android:id="@+id/purchaseparties_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Company Name"/>
+
+    <EditText
+        android:id="@+id/purchaseparties_party1name"
+        android:layout_below="@+id/purchaseparties_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="party1 Name"/>
+
+    <EditText
+        android:id="@+id/purchaseparties_mobile"
+        android:layout_below="@+id/purchaseparties_party1name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Mobile1"/>
+
+    <EditText
+        android:id="@+id/purchaseparties_party2name"
+        android:layout_below="@+id/purchaseparties_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Party2 Name"/>
+
+    <EditText
+        android:id="@+id/purchaseparties_mobile2"
+        android:layout_below="@+id/purchaseparties_party2name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Mobile2"/>
+    <EditText
+        android:id="@+id/purchaseparties_email"
+        android:layout_below="@+id/purchaseparties_mobile2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Email"/>
+
+    <EditText
+        android:id="@+id/purchaseparties_gstno"
+        android:layout_below="@+id/purchaseparties_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="GST No"/>
+
+    <EditText
+        android:id="@+id/purchaseparties_panno"
+        android:layout_below="@+id/purchaseparties_gstno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="PAN No"/>
+
+    <EditText
+        android:id="@+id/purchaseparties_address"
+        android:layout_below="@+id/purchaseparties_panno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Address"/>
+
+
+    <Button
+        android:id="@+id/purchaseparties_button"
+        android:layout_below="@+id/purchaseparties_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="50dp"
+        android:background="#f1f1"
+        />
+</RelativeLayout>
