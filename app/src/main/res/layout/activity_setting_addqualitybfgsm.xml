@@ -18,6 +18,7 @@
 
     <EditText
         android:id="@+id/addqualitybfgsm_bf"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/addqualitybfgsm_spinner"
@@ -30,6 +31,7 @@
     <EditText
         android:id="@+id/addqualitybfgsm_gsm"
         android:layout_width="match_parent"
+        android:inputType="numberDecimal"
         android:layout_height="wrap_content"
         android:layout_below="@id/addqualitybfgsm_bf"
         android:layout_marginLeft="100dp"
@@ -42,6 +44,7 @@
         android:id="@+id/addqualitybfgsm_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:layout_below="@id/addqualitybfgsm_gsm"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="10dp"
@@ -60,36 +63,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="150dp"/>
 
-         <ScrollView
-        android:id="@+id/scrollView"
-             android:layout_below="@id/addqualitybfgsm_button"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="10dp">
-
-
-        <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
-
-             <HorizontalScrollView
-                 android:id="@+id/horizontalScrollView"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content">
-
-             <LinearLayout
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal">
-
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/addqualitybfgsm_button"
+                android:layout_marginTop="10dp"
                 >
 
             <TableRow
@@ -141,62 +119,73 @@
             </TableRow>
 
 
+
+
             <!--SECOND ROW-->
 
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center">
+            <!--<TableRow-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center">-->
 
-                <TextView
-                    android:id="@+id/display_company0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="#Quality"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/display_company0"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="#Quality"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="20dp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:text="#bf"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="30dp"-->
+                    <!--android:text="#bf"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="20dp" />-->
 
-                <TextView
-                    android:id="@+id/display_pending0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:text="#gsm"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/display_pending0"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="30dp"-->
+                    <!--android:text="#gsm"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="20dp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:text="#size"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="30dp"-->
+                    <!--android:text="#size"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="20dp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:text="#time0000000"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="40dp"-->
+                    <!--android:text="#time0000000"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="20dp" />-->
 
 
-            </TableRow>
+            <!--</TableRow>-->
             </TableLayout>
-             </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@+id/addqualitybfgsm_button"
+        android:id="@+id/ld"
+        android:layout_marginTop="30dp">
 
-             </HorizontalScrollView>
-
-        </LinearLayout>
-         </ScrollView>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="694dp"
+            android:id="@+id/addqualitybfgsm_listview_layout"
+           >
+        </ListView>
+    </LinearLayout>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -7,18 +8,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.rajpa.dashboard.Add_stock;
 import com.example.rajpa.dashboard.R;
 
 import org.json.JSONArray;
@@ -26,7 +30,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Sell extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     GridLayout g1;
@@ -35,6 +41,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
     String spin_company,spin_quality,spin_bf,spin_gsm,spin_size,spin_weight;
     EditText sellprice;
     Button b1,b2,b3;
+    CheckBox c1;
     List<String>party_list=new ArrayList<>();
     List<String>quality_list=new ArrayList<>();
     ListView list1;
@@ -49,6 +56,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
     String choose_gsm_URL="https://rajpatel17398.000webhostapp.com/sell%20fetch.php?choose_gsm=choose_gsm";
     String choose_size_URL="https://rajpatel17398.000webhostapp.com/sell%20fetch.php?choose_size=choose_size";
     String choose_weight_URL="https://rajpatel17398.000webhostapp.com/sell%20fetch.php?choose_weight=choose_weight";
+    String URL= "https://rajpatel17398.000webhostapp.com/sell.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +81,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
 //        b1=(Button) findViewById(R.id.sellbutton1);
         b2=(Button) findViewById(R.id.sellbutton2);
         b3=(Button) findViewById(R.id.sellbutton3);
+        c1=findViewById(R.id.sellcheck);
 
         choose_party_spinner();
         choose_quality_spinner();
@@ -111,16 +120,68 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response.trim().equals("success")){
+                            Toast.makeText(Sell.this, "Success", Toast.LENGTH_SHORT).show();
 
-                for (int i=0;i<list.size();i++)
+//                            Intent intent=new Intent(Sell.this,Add_stock.class);
+//                            startActivity(intent);
+                        }else {
+                            Toast.makeText(Sell.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Sell.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                    }
+                })
                 {
-                    Log.e("TotalData",">>>>>>"+list.get(i).getGsm());
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String>param=new HashMap<>();
+                        param.put("choose_party",spin_company);
+                        param.put("choose_bf",spin_bf);
+                        param.put("choose_gsm",spin_gsm);
+                        param.put("choose_size",spin_size);
+                        param.put("choose_weight",spin_weight);
+                        param.put("choose_Quality",spin_quality);
+                        param.put("sellprice", sellprice.getText().toString());
+//                        param.put("cgst_edit_text",cgst.getText().toString());
+//                        param.put("sgst_edit_text",sgst.getText().toString());
+//                        param.put("insu",insu.getText().toString());
+//                        param.put("total",total.getText().toString());
+//                        param.put("cgst_edit_text",mail);
+//                        param.put("cgst_edit_text",mail);
+                        return param;
+                    }
+                };
+                RequestQueue queue= Volley.newRequestQueue(Sell.this);
+                queue.add(request);
+
+
+                for (int i = 0; i < list.size(); i++) {
+                    Log.e("TotalData", ">>>>>>" + list.get(i).getGsm());
                 }
+
+                if (c1.isChecked()) {
+                    String c1 = "1";
+                    Toast.makeText(Sell.this, "check box is checked", Toast.LENGTH_SHORT).show();
+                } else {
+                    String c1 = "0";
+                }
+
             }
+
+
         });
-
-
     }
+
+
 
     private void choose_quality_spinner() {
         StringRequest request1=new StringRequest(Request.Method.GET, choose_quality_URL, new Response.Listener<String>() {
@@ -227,7 +288,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     private void choose_party_spinner() {
 
-        StringRequest request=new StringRequest(Request.Method.GET, choose_party_URL, new Response.Listener<String>() {
+        StringRequest request4=new StringRequest(Request.Method.GET, choose_party_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -239,9 +300,9 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                         String company_name=object.getString("company_name");
                         party_list.add(company_name);
                     }
-                    ArrayAdapter aa = new ArrayAdapter(Sell.this,android.R.layout.simple_spinner_item,party_list);
-                    aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    s1.setAdapter(aa);
+                    ArrayAdapter aa4 = new ArrayAdapter(Sell.this,android.R.layout.simple_spinner_item,party_list);
+                    aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    s1.setAdapter(aa4);
 
 
                 } catch (JSONException e) {
@@ -257,7 +318,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
             }
         });
         RequestQueue queue=Volley.newRequestQueue(Sell.this);
-        queue.add(request);
+        queue.add(request4);
     }
     private void choose_size_spinner() {
         StringRequest request1=new StringRequest(Request.Method.GET, choose_size_URL, new Response.Listener<String>() {
@@ -272,9 +333,9 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
 
                         size_list.add(size);
                     }
-                    ArrayAdapter aa1= new ArrayAdapter(Sell.this,android.R.layout.simple_spinner_item,size_list);
-                    aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    s5.setAdapter(aa1);
+                    ArrayAdapter aa5= new ArrayAdapter(Sell.this,android.R.layout.simple_spinner_item,size_list);
+                    aa5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    s5.setAdapter(aa5);
 
 
                 } catch (JSONException e) {
@@ -305,9 +366,9 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
 
                         weight_list.add(weight);
                     }
-                    ArrayAdapter aa1= new ArrayAdapter(Sell.this,android.R.layout.simple_spinner_item,weight_list);
-                    aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    s6.setAdapter(aa1);
+                    ArrayAdapter aa6= new ArrayAdapter(Sell.this,android.R.layout.simple_spinner_item,weight_list);
+                    aa6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    s6.setAdapter(aa6);
 
 
                 } catch (JSONException e) {

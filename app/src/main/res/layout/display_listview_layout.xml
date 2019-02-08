@@ -1,179 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activity.PP_part2">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
+
+
+                    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
                     <TableLayout
-                        android:id="@+id/pp_tableview"
-                        android:layout_width="90dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         >
 
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Quality"
-                                android:textColor="#ffffff"
+                                android:text="#co.name"
+
                                 android:textSize="20dp" />
                         </TableRow>
-                        <!--++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Bf"
-                                android:textColor="#ffffff"
-                                android:textSize="20dp" />
-                        </TableRow>
-                        <TableRow
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="#FF5E4D5C"
-                            android:gravity="center">
+                                android:text="#buy date"
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Gsm"
-                                android:textColor="#ffffff"
                                 android:textSize="20dp" />
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Weight"
-                                android:textColor="#ffffff"
+                                android:text="#quality"
+
                                 android:textSize="20dp" />
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Price"
-                                android:textColor="#ffffff"
+                                android:text="#bf"
+
                                 android:textSize="20dp" />
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Paid"
-                                android:textColor="#ffffff"
+                                android:text="#gsm"
+
                                 android:textSize="20dp" />
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Pending"
-                                android:textColor="#ffffff"
+                                android:text="#paid"
+
                                 android:textSize="20dp" />
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="#total"
+
+                                android:textSize="20dp" />
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/pp_part2_view"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="VIEW"
-                                android:textColor="#ffffff"
+
                                 android:textSize="20dp" />
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <!--<TextView-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="Address"-->
-                                <!--android:textColor="#ffffff"-->
-                                <!--android:textSize="20dp" />-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="Address"-->
+
+                            <!--android:textSize="20dp" />-->
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#FF5E4D5C"
+
                             android:gravity="center">
 
                             <!--<TextView-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="Edit"-->
-                                <!--android:textColor="#ffffff"-->
-                                <!--android:textSize="20dp" />-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="Edit"-->
+
+                            <!--android:textSize="20dp" />-->
 
                         </TableRow>
                     </TableLayout>
-                    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/display_button"
-        android:id="@+id/ld"
-        android:layout_marginTop="20dp">
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="694dp"
-            android:id="@+id/display_listview_layout"
-            android:layout_marginLeft="100dp">
-        </ListView>
-    </LinearLayout>
 
 
+
+    <!--<TextView-->
+    <!--android:id="@+id/t1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Company Name"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/t2"-->
+        <!--android:layout_below="@+id/t1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Purchase Date"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/t3"-->
+        <!--android:layout_below="@+id/t2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="pending"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/t4"-->
+        <!--android:layout_below="@+id/t3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Bf"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/t5"-->
+        <!--android:layout_below="@id/t4"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Gsm"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/t6"-->
+        <!--android:layout_below="@id/t5"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Quality"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/t7"-->
+        <!--android:layout_below="@id/t6"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Paid"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/t8"-->
+        <!--android:layout_below="@id/t7"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Total"/>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Company Name"/>-->
 
 </RelativeLayout>

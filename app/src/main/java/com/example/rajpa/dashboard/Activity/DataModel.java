@@ -1,8 +1,10 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.widget.EditText;
+
 public class DataModel {
 
-    String quality,bf,gsm,price,number,party,size,weight;
+    String quality,bf,gsm,price,number,party,size,weight,addstock_size,addstock_weight;
 
     public String getQuality() {
         return quality;
@@ -68,6 +70,20 @@ public class DataModel {
         this.weight = weight;
     }
 
+    public String getSize() {
+        return addstock_size;
+    }
 
+    public void setSize(String addstock_size) {
+        this.addstock_size = addstock_size;
+    }
+
+    public String getWeight() {
+        return addstock_weight;
+    }
+
+    public void setWeight(String addstock_weight) {
+        this.addstock_weight = addstock_weight;
+    }
 
 }

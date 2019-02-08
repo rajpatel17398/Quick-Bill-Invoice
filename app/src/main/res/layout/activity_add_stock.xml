@@ -40,18 +40,21 @@
         android:layout_marginTop="20dp"
         android:hint="SIZE"
         android:gravity="center"
+        android:inputType="numberDecimal"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"/>
+
     <EditText
         android:id="@+id/add_stock_weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/add_stock_size"
-        android:layout_marginTop="20dp"
-        android:hint="Weight"
-        android:gravity="center"
         android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="100dp"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:hint="Weight" />
     <Button
         android:id="@+id/add_stock_button1"
         android:layout_width="wrap_content"
@@ -62,78 +65,18 @@
         android:layout_marginLeft="160dp"
         android:background="#8bf4e8"/>
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_below="@id/add_stock_button1"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="100dp">
+        android:orientation="horizontal"
+        android:layout_below="@+id/add_stock_button1"
+        android:id="@+id/addstock_linear">
 
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-    <TableRow
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-
-        android:gravity="center">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="#info"
-        android:textSize="20dp"
-        android:layout_marginLeft="20dp"/>
-
-        <TextView
+        <ListView
+            android:id="@+id/addstock_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="#size"
-            android:textSize="20dp"
-            android:layout_marginLeft="130dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="#weight"
-            android:textSize="20dp"
-            android:layout_marginLeft="50dp"/>
-    </TableRow>
-
-
-
-    </TableLayout>
-
+            android:layout_height="319dp"></ListView>
     </LinearLayout>
-
-    </HorizontalScrollView>
-
-    </LinearLayout>
-
-    </ScrollView>
 
     <Button
         android:id="@+id/add_stock_button2"

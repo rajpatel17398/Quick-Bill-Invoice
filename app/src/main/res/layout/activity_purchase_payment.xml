@@ -7,8 +7,8 @@
     tools:context=".Activity.Purchase_payment">
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="135dp"
+        android:id="@+id/pp_spinner"
+        android:layout_width="200dp"
         android:layout_height="38dp"
 
         android:layout_alignParentStart="true"
@@ -24,11 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignBottom="@+id/spinner"
+        android:layout_alignBottom="@+id/pp_spinner"
 
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="106dp"
+        android:layout_marginEnd="70dp"
         android:layout_marginRight="106dp"
         android:layout_marginBottom="0dp"
         android:background="#FF9AA7EA"

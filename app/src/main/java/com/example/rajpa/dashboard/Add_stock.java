@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,6 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rajpa.dashboard.Activity.Buy;
+import com.example.rajpa.dashboard.Activity.DataModel;
+import com.example.rajpa.dashboard.Activity.Sell;
+import com.example.rajpa.dashboard.Activity.Sell_BaseAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,11 +32,15 @@ import java.util.List;
 public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     static Spinner s1, s2, s3;
     String spin_quality, spin_bf, spin_gsm;
-    EditText e1, e2;
+    EditText addstock_size, addstock_weight;
     Button b1, b2;
+    DataModel dataModel;
+    ListView addstock_list;
+    List<DataModel>list;
     List<String> quality_list = new ArrayList<>();
     List<String> bf_list = new ArrayList<>();
     List<String> gsm_list = new ArrayList<>();
+
     String choose_quality_URL = "https://rajpatel17398.000webhostapp.com/Addstock%20fetch.php?choose_Quality=choose_Quality";
     String choose_bf_URL = "https://rajpatel17398.000webhostapp.com/Addstock%20fetch.php?choose_bf=choose_bf";
     String choose_gsm_URL = "https://rajpatel17398.000webhostapp.com/Addstock%20fetch.php?choose_gsm=choose_gsm";
@@ -43,17 +51,54 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_stock);
+        addstock_list=findViewById(R.id.addstock_list);
         s1 = (Spinner) findViewById(R.id.add_stock_qualityspinner);
         s1.setOnItemSelectedListener(this);
         s2 = (Spinner) findViewById(R.id.add_stock_bfspinner);
         s2.setOnItemSelectedListener(this);
         s3 = (Spinner) findViewById(R.id.add_stock_gsmspinner);
         s3.setOnItemSelectedListener(this);
+        b1=findViewById(R.id.add_stock_button1);
+        b2=findViewById(R.id.add_stock_button2);
+        addstock_size=findViewById(R.id.add_stock_size);
+        addstock_weight=findViewById(R.id.add_stock_weight);
 
         choose_quality_spinner();
         choose_bf_spinner();
         choose_gsm_spinner();
+        list=new ArrayList<>();
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String Size=addstock_size.getText().toString();
+                String Weight=addstock_weight.getText().toString();
+                dataModel=new DataModel();
+                dataModel.setBf(spin_bf);
+                dataModel.setGsm(spin_gsm);
+                dataModel.setQuality(spin_quality);
+                dataModel.setSize(Size);
+                dataModel.setWeight(Weight);
+
+
+
+                list.add(dataModel);
+//                list.add(spin_bf);
+//                list.add(spin_gsm);
+
+                Addstock_BaseAdapter adapter1=new Addstock_BaseAdapter(Add_stock.this,list);
+                addstock_list.setAdapter(adapter1);
+
+               // Toast.makeText(Add_stock.this, spin_quality+"\n"+spin_bf+"\n"+spin_gsm+"\n"+addstock_size+"\n"+addstock_weight, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
+
+
+
 
     private void choose_quality_spinner() {
         StringRequest request1 = new StringRequest(Request.Method.GET, choose_quality_URL, new Response.Listener<String>() {
