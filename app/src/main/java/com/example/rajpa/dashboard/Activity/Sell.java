@@ -1,6 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,7 +22,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.rajpa.dashboard.Add_stock;
 import com.example.rajpa.dashboard.R;
 
 import org.json.JSONArray;
@@ -36,10 +35,12 @@ import java.util.Map;
 
 public class Sell extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     GridLayout g1;
+    ProgressDialog pd;
     static Spinner s1,s2,s3,s4,s5,s6;
     DataModel dataModel;
     String spin_company,spin_quality,spin_bf,spin_gsm,spin_size,spin_weight;
     EditText sellprice;
+    String check;
     Button b1,b2,b3;
     CheckBox c1;
     List<String>party_list=new ArrayList<>();
@@ -63,6 +64,12 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
        // spin_company=findViewById(R.id.pa)
+
+        pd=new ProgressDialog(Sell.this);
+        pd.setMessage("Loading..");
+        pd.setCancelable(false);
+        pd.show();
+
         sellprice=findViewById(R.id.sellprice);
         g1=(GridLayout)findViewById(R.id.grid);
         list1=findViewById(R.id.list1);
@@ -83,6 +90,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         b3=(Button) findViewById(R.id.sellbutton3);
         c1=findViewById(R.id.sellcheck);
 
+
         choose_party_spinner();
         choose_quality_spinner();
         choose_bf_spinner();
@@ -94,6 +102,9 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
 
                 String s=sellprice.getText().toString();
                 dataModel=new DataModel();
@@ -113,6 +124,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                 Sell_BaseAdapter adapter=new Sell_BaseAdapter(Sell.this,list);
                 list1.setAdapter(adapter);
 
+
                 Toast.makeText(Sell.this, spin_quality+"\n"+spin_bf+"\n"+spin_gsm+"\n"+spin_size+"\n"+spin_weight, Toast.LENGTH_SHORT).show();
             }
         });
@@ -120,60 +132,75 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        if (response.trim().equals("success")){
-                            Toast.makeText(Sell.this, "Success", Toast.LENGTH_SHORT).show();
+                pd.show();
+                if (c1.isChecked()) {
+                     check = "1";
+                    Toast.makeText(Sell.this, "check box is checked", Toast.LENGTH_SHORT).show();
+                } else {
+                     check = "0";
+                }
+
+
+                for (int i = 0; i < list.size(); i++) {
+                    Log.e("TotalData", ">>>>>>" + list.get(i).getGsm());
+                    final String p=list.get(i).getParty();
+                    final String b=list.get(i).getBf();
+                    final String g=list.get(i).getGsm();
+                    final String s=list.get(i).getsize();
+                    final String w=list.get(i).getweight();
+                    final String q=list.get(i).getQuality();
+                    final String sp=list.get(i).getPrice();
+                    StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.e("Res",">>>>>>>>"+response);
+                            if (response.trim().equals("success")){
+                                pd.dismiss();
+
+                                Toast.makeText(Sell.this, "Success", Toast.LENGTH_SHORT).show();
 
 //                            Intent intent=new Intent(Sell.this,Add_stock.class);
 //                            startActivity(intent);
-                        }else {
-                            Toast.makeText(Sell.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                            }else {
+                                pd.dismiss();
+                                Toast.makeText(Sell.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(Sell.this, error.toString(), Toast.LENGTH_SHORT).show();
 
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Sell.this, error.toString(), Toast.LENGTH_SHORT).show();
-
-                    }
-                })
-                {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String>param=new HashMap<>();
-                        param.put("choose_party",spin_company);
-                        param.put("choose_bf",spin_bf);
-                        param.put("choose_gsm",spin_gsm);
-                        param.put("choose_size",spin_size);
-                        param.put("choose_weight",spin_weight);
-                        param.put("choose_Quality",spin_quality);
-                        param.put("sellprice", sellprice.getText().toString());
+                        }
+                    })
+                    {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String,String>param=new HashMap<>();
+                            param.put("choose_party",p);
+                            param.put("choose_bf",b);
+                            param.put("choose_gsm",g);
+                            param.put("choose_size",s);
+                            param.put("choose_weight",w);
+                            param.put("choose_Quality",q);
+                            param.put("sellprice", sp);
+                            param.put("sellcheck",check);
 //                        param.put("cgst_edit_text",cgst.getText().toString());
 //                        param.put("sgst_edit_text",sgst.getText().toString());
 //                        param.put("insu",insu.getText().toString());
 //                        param.put("total",total.getText().toString());
 //                        param.put("cgst_edit_text",mail);
 //                        param.put("cgst_edit_text",mail);
-                        return param;
-                    }
-                };
-                RequestQueue queue= Volley.newRequestQueue(Sell.this);
-                queue.add(request);
+                            return param;
+                        }
+                    };
+                    RequestQueue queue= Volley.newRequestQueue(Sell.this);
+                    queue.add(request);
 
-
-                for (int i = 0; i < list.size(); i++) {
-                    Log.e("TotalData", ">>>>>>" + list.get(i).getGsm());
                 }
 
-                if (c1.isChecked()) {
-                    String c1 = "1";
-                    Toast.makeText(Sell.this, "check box is checked", Toast.LENGTH_SHORT).show();
-                } else {
-                    String c1 = "0";
-                }
+
 
             }
 
@@ -187,9 +214,11 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         StringRequest request1=new StringRequest(Request.Method.GET, choose_quality_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+               pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     quality_list.add("Choose_quality");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String quality=object.getString("quality");
@@ -221,9 +250,11 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         StringRequest request2=new StringRequest(Request.Method.GET, choose_bf_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+               pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     bf_list.add("Choose_bf");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String bf=object.getString("bf");
@@ -255,9 +286,11 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         StringRequest request3=new StringRequest(Request.Method.GET, choose_gsm_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+               pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     gsm_list.add("Choose_gsm");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String gsm=object.getString("gsm");
@@ -291,9 +324,11 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         StringRequest request4=new StringRequest(Request.Method.GET, choose_party_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+               pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     party_list.add("Choose_Company");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
 
@@ -324,9 +359,11 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         StringRequest request1=new StringRequest(Request.Method.GET, choose_size_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+               pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     size_list.add("Choose_size");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String size=object.getString("size");
@@ -357,9 +394,11 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         StringRequest request1=new StringRequest(Request.Method.GET, choose_weight_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+               pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     weight_list.add("Choose_weight");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String weight=object.getString("weight");

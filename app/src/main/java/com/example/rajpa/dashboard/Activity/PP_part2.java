@@ -16,7 +16,7 @@ public class PP_part2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pp_part2);
-        b1=findViewById(R.id.pp_part2_view);
+     /*   b1=findViewById(R.id.pp_part2_view);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,6 +24,6 @@ public class PP_part2 extends AppCompatActivity {
                 Intent i3=new Intent(PP_part2.this, PP_part2_view.class);
                 startActivity(i3);
             }
-        });
+        });*/
     }
 }

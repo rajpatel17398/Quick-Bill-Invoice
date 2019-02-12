@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
     GridLayout g1;
     static Spinner s1, s2, s3, s4;
     Button b1, b2, b3;
+    ProgressDialog pd;
     String spin_company,spin_quality,spin_bf,spin_gsm;
     TextView kg, rs, insurence, gst, total;
     EditText weight, price, insu, cgst, sgst;
@@ -64,6 +66,11 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy);
+
+        pd=new ProgressDialog(Buy.this);
+        pd.setMessage("Loading..");
+        pd.setCancelable(false);
+        pd.show();
         g1 = (GridLayout) findViewById(R.id.grid);
         s1 = (Spinner) findViewById(R.id.choose_party);
         s1.setOnItemSelectedListener(this);
@@ -212,16 +219,19 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.show();
 //                final String comany=s1.getText().toString();
                 StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.trim().equals("success")){
+                            pd.dismiss();
                             Toast.makeText(Buy.this, "Success", Toast.LENGTH_SHORT).show();
 
                             Intent intent=new Intent(Buy.this,Add_stock.class);
                             startActivity(intent);
                         }else {
+                            pd.dismiss();
                             Toast.makeText(Buy.this, "Something Wrong", Toast.LENGTH_SHORT).show();
                         }
 
@@ -229,6 +239,7 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        pd.dismiss();
                         Toast.makeText(Buy.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                     }
@@ -271,9 +282,11 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         StringRequest request1=new StringRequest(Request.Method.GET, choose_quality_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     quality_list.add("Choose_quality");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String quality=object.getString("quality");
@@ -302,12 +315,15 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
     }
 
     private void choose_bf_spinner() {
+
         StringRequest request2=new StringRequest(Request.Method.GET, choose_bf_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     bf_list.add("Choose_bf");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String bf=object.getString("bf");
@@ -336,12 +352,15 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
     }
 
     private void choose_gsm_spinner() {
+
         StringRequest request3=new StringRequest(Request.Method.GET, choose_gsm_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     gsm_list.add("Choose_gsm");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
                         String gsm=object.getString("gsm");
@@ -375,9 +394,11 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
         StringRequest request=new StringRequest(Request.Method.GET, choose_party_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     party_list.add("Choose_Company");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
 

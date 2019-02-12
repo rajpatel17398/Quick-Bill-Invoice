@@ -20,6 +20,7 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/di_coname"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="#co.name"
@@ -35,6 +36,7 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/di_buydate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="#buy date"
@@ -49,6 +51,7 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/di_quality"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="#quality"
@@ -63,6 +66,7 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/di_bf"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="#bf"
@@ -77,6 +81,7 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/di_gsm"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="#gsm"
@@ -91,6 +96,7 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/di_paid"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="#paid"
@@ -105,6 +111,7 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/di_total"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="#total"
@@ -118,13 +125,13 @@
 
                             android:gravity="center">
 
-                            <TextView
-                                android:id="@+id/pp_part2_view"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="VIEW"
+                            <!--<TextView-->
+                                <!--android:id="@+id/pp_part2_view"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="VIEW"-->
 
-                                android:textSize="20dp" />
+                                <!--android:textSize="20dp" />-->
                         </TableRow>
                         <TableRow
                             android:layout_width="wrap_content"

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,9 +82,9 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
             public void onClick(View v) {
 
 
-                String bf = e1.getText().toString();
-                String gsm = e2.getText().toString();
-                String size = e3.getText().toString();
+                final String bf = e1.getText().toString();
+                final String gsm = e2.getText().toString();
+                final String size = e3.getText().toString();
 
                 if (TextUtils.isEmpty(bf))
 
@@ -102,6 +103,7 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
                     StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            Log.e("Res",">>>>>>>>"+response);
                             if (response.trim().equals("success")) {
                                 Toast.makeText(setting_addqualitybfgsm.this, "Success", Toast.LENGTH_SHORT).show();
 
@@ -124,9 +126,11 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> param = new HashMap<>();
                             param.put("choose_Quality", spin_quality);
-                            param.put("addqualitybfgsm_bf", e1.getText().toString());
-                            param.put("addqualitybfgsm_gsm", e2.getText().toString());
-                            param.put("addqualitybfgsm_size ", e3.getText().toString());
+                            param.put("addqualitybfgsm_bf", bf);
+                            param.put("addqualitybfgsm_gsm", gsm);
+                            param.put("addqualitybfgsm_size", size);
+
+                            Log.e("Data",">>>>>>>>"+spin_quality+bf+gsm+size);
 //                        param.put("cgst_edit_text",mail);
 //                        param.put("cgst_edit_text",mail);
                             return param;
@@ -182,13 +186,10 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
     {
-        Spinner spinner = (Spinner) adapterView;
 
-        if(spinner.getId() == R.id.choose_Quality)
-        {
             spin_quality=quality_list.get(i);
             Toast.makeText(this, quality_list.get(i), Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     @Override

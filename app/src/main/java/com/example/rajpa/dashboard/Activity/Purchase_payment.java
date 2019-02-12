@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import java.util.List;
 public class Purchase_payment extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button b1;
     static Spinner s1;
+    ProgressDialog pd;
     String spin_company;
     List<String> party_list = new ArrayList<>();
     String choose_party_URL = "https://rajpatel17398.000webhostapp.com/purchasepayment%20fetch.php?choose_party=choose_party";
@@ -37,7 +39,9 @@ public class Purchase_payment extends AppCompatActivity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_payment);
-
+        pd=new ProgressDialog(Purchase_payment.this);
+        pd.setMessage("Loading..");
+        pd.show();
         b1=findViewById(R.id.pp_button);
         s1 = (Spinner) findViewById(R.id.pp_spinner);
         s1.setOnItemSelectedListener(this);
@@ -58,9 +62,11 @@ public class Purchase_payment extends AppCompatActivity implements AdapterView.O
         StringRequest request=new StringRequest(Request.Method.GET, choose_party_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                pd.show();
                 try {
                     JSONArray array=new JSONArray(response);
                     party_list.add("Choose_Company");
+                    pd.dismiss();
                     for (int i=0;i<array.length();i++){
                         JSONObject object=array.getJSONObject(i);
 
