@@ -22,28 +22,30 @@ import com.example.rajpa.dashboard.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PP_part2_view extends AppCompatActivity {
-                TextView e11,e12,e13;
-                EditText e1;
-                Button ppbutton;
-    String id,amount_paid,cname;
-    String URL="https://rajpatel17398.000webhostapp.com/update purchase payment.php";
+public class SP_part2_view extends AppCompatActivity {
+    TextView e11,e12,e13;
+    EditText e1;
+    Button sp_button;
+    String id,amount_paid,cname,invoice;
+    String URL="https://rajpatel17398.000webhostapp.com/update sell payment.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pp_part2_view);
+        setContentView(R.layout.sp_part2_view);
 
-        e11=findViewById(R.id.ppn3);
-        e12=findViewById(R.id.ppn4);
-        e13=findViewById(R.id.ppn5);
+        e11=findViewById(R.id.spn3);
+        e12=findViewById(R.id.spn4);
+        e13=findViewById(R.id.spn5);
+        e1=findViewById(R.id.sp_view_add);
+        sp_button=findViewById(R.id.sp_button1);
 
-        ppbutton=findViewById(R.id.pp_addbutton);
 
-        e1=findViewById(R.id.pp_view_add);
         cname=getIntent().getStringExtra("cname");
         id=getIntent().getStringExtra("id");
         amount_paid=getIntent().getStringExtra("amount_paid");
+
+       invoice=getIntent().getStringExtra("invoice");
         String total=getIntent().getStringExtra("total");
         e11.setText(total);
         String paid=getIntent().getStringExtra("paid");
@@ -51,7 +53,7 @@ public class PP_part2_view extends AppCompatActivity {
         String pending=getIntent().getStringExtra("pending");
         e13.setText(pending);
 
-        ppbutton.setOnClickListener(new View.OnClickListener() {
+        sp_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -61,21 +63,21 @@ public class PP_part2_view extends AppCompatActivity {
                         if (response.trim().equals("success")){
 
 
-                            Toast.makeText(PP_part2_view.this, "Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SP_part2_view.this, "Success", Toast.LENGTH_SHORT).show();
 
-                            Intent intent22=new Intent(PP_part2_view.this,Purchase_payment.class);
-                            intent22.putExtra("cname",cname);
+                            Intent intent22=new Intent(SP_part2_view.this,Sell_payment.class);
+                            intent22.putExtra("invoice",invoice);
                             startActivity(intent22);
                         }else {
 
-                            Toast.makeText(PP_part2_view.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SP_part2_view.this, "Something Wrong", Toast.LENGTH_SHORT).show();
                         }
 
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(PP_part2_view.this, error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SP_part2_view.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                     }
                 })
@@ -90,7 +92,7 @@ public class PP_part2_view extends AppCompatActivity {
                         return param;
                     }
                 };
-                RequestQueue queue= Volley.newRequestQueue(PP_part2_view.this);
+                RequestQueue queue= Volley.newRequestQueue(SP_part2_view.this);
                 queue.add(request);
 
             }
@@ -100,3 +102,4 @@ public class PP_part2_view extends AppCompatActivity {
 
     }
 }
+

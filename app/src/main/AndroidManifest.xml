@@ -62,9 +62,13 @@
         <activity android:name=".Add_stock" />
         <activity android:name=".Remove_stock" />
         <activity android:name=".Add_purchase_parties" />
+        <activity android:name=".Activity.SP_part2_view" />
         <activity android:name=".Add_sell_parties" />
-        <activity android:name=".Activity.PP_part2" />
-        <activity android:name=".Activity.PP_part2_view"></activity>
+        <activity android:name=".Activity.PP_part2_view" />
+        <activity android:name=".Activity.viewsellparties_button" />
+        <activity android:name=".Activity.viewpurchaseparties_button" />
+        <activity android:name=".Activity.sell_part2" />
+        <activity android:name=".Activity.Invoice"></activity>
     </application>
 
 </manifest>

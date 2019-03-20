@@ -112,7 +112,7 @@
 
         <!--<!-coloumb1-->
         <android.support.v7.widget.CardView
-            android:id="@+id/stock"
+            android:id="@+id/Invoice"
             android:foreground="?attr/selectableItemBackground"
             android:stateListAnimator="@drawable/animation"
             android:layout_width="0dp"
@@ -141,7 +141,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stock"
+                    android:text="Invoice"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"

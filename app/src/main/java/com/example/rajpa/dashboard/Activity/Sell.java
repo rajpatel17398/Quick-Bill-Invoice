@@ -1,6 +1,7 @@
 package com.example.rajpa.dashboard.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,13 +41,14 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
     static Spinner s1,s2,s3,s4,s5,s6;
     DataModel dataModel;
     String spin_company,spin_quality,spin_bf,spin_gsm,spin_size,spin_weight;
-    EditText sellprice;
-    String check;
+    EditText sellprice,cgst,sgst;
+    String check,invoice;
     Button b1,b2,b3;
     CheckBox c1;
     List<String>party_list=new ArrayList<>();
     List<String>quality_list=new ArrayList<>();
     ListView list1;
+    TextView invoice1;
     List<DataModel>list;
     List<String>bf_list=new ArrayList<>();
     List<String>size_list=new ArrayList<>();
@@ -68,9 +71,11 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         pd=new ProgressDialog(Sell.this);
         pd.setMessage("Loading..");
         pd.setCancelable(false);
-        pd.show();
-
+//        pd.show();
+        invoice1=findViewById(R.id.invoice1);
         sellprice=findViewById(R.id.sellprice);
+        cgst=findViewById(R.id.cgst1);
+        sgst=findViewById(R.id.sgst1);
         g1=(GridLayout)findViewById(R.id.grid);
         list1=findViewById(R.id.list1);
         s1=(Spinner)findViewById(R.id.choose_party);
@@ -107,6 +112,8 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
 
 
                 String s=sellprice.getText().toString();
+                String sg=sgst.getText().toString();
+                String cg=cgst.getText().toString();
                 dataModel=new DataModel();
                 dataModel.setBf(spin_bf);
                 dataModel.setGsm(spin_gsm);
@@ -115,6 +122,8 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                 dataModel.setParty(spin_company);
                 dataModel.setsize(spin_size);
                 dataModel.setweight(spin_weight);
+                dataModel.setsgst(sg);
+                dataModel.setcgst(cg);
 
 
                 list.add(dataModel);
@@ -132,7 +141,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pd.show();
+//                pd.show();
                 if (c1.isChecked()) {
                      check = "1";
                     Toast.makeText(Sell.this, "check box is checked", Toast.LENGTH_SHORT).show();
@@ -150,20 +159,29 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                     final String w=list.get(i).getweight();
                     final String q=list.get(i).getQuality();
                     final String sp=list.get(i).getPrice();
+                    final String cg=list.get(i).getcgst();
+                    final String sg=list.get(i).getsgst();
                     StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             Log.e("Res",">>>>>>>>"+response);
-                            if (response.trim().equals("success")){
+                            if (response.trim().equals("not_success")){
                                 pd.dismiss();
-
-                                Toast.makeText(Sell.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Sell.this, "Something Wrong", Toast.LENGTH_SHORT).show();
 
 //                            Intent intent=new Intent(Sell.this,Add_stock.class);
 //                            startActivity(intent);
                             }else {
                                 pd.dismiss();
-                                Toast.makeText(Sell.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                                invoice=response.toString();
+                                invoice1.setText(invoice);
+
+
+                                Toast.makeText(Sell.this, "Success", Toast.LENGTH_SHORT).show();
+
+                                Intent intent=new Intent(Sell.this,sell_part2.class);
+                                intent.putExtra("invoice",invoice);
+                                startActivity(intent);
                             }
 
                         }
@@ -185,6 +203,8 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                             param.put("choose_weight",w);
                             param.put("choose_Quality",q);
                             param.put("sellprice", sp);
+                            param.put("cgst", cg);
+                            param.put("sgst", sg);
                             param.put("sellcheck",check);
 //                        param.put("cgst_edit_text",cgst.getText().toString());
 //                        param.put("sgst_edit_text",sgst.getText().toString());
@@ -199,7 +219,6 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                     queue.add(request);
 
                 }
-
 
 
             }

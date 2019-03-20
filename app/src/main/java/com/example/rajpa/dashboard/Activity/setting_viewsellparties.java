@@ -1,6 +1,7 @@
 package com.example.rajpa.dashboard.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,6 +52,7 @@ public class setting_viewsellparties extends AppCompatActivity {
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
+                        String id=object.getString("id");
                         String company_name = object.getString("company_name");
                         String name = object.getString("name");
                         String name_2 = object.getString("name_2");
@@ -63,7 +65,8 @@ public class setting_viewsellparties extends AppCompatActivity {
 
 
                         DataModel model = new DataModel();
-                        String e = edit.getText().toString();
+                     //   String e = edit.getText().toString();
+                        model.setId(id);
                         model.setName(name);
                         model.setName_2(name_2);
                         model.setMobile(mobile);
@@ -73,12 +76,13 @@ public class setting_viewsellparties extends AppCompatActivity {
                         model.setPan_no(pan_no);
                         model.setAddress(address);
                         model.setCompany_name(company_name);
-                        model.setEdit(e);
+                  //      model.setEdit(e);
 
                         list.add(model);
 
                         setting_viewsellparties_BaseAdapter adapter = new setting_viewsellparties_BaseAdapter(setting_viewsellparties.this, list);
                         Setting_list.setAdapter(adapter);
+
                     }
 
 
@@ -99,6 +103,14 @@ public class setting_viewsellparties extends AppCompatActivity {
 
         RequestQueue queue= Volley.newRequestQueue(setting_viewsellparties.this);
         queue.add(request);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(setting_viewsellparties.this,Settings.class);
+        startActivity(intent);
+        finish();
+
     }
 
 

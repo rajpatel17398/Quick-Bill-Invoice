@@ -69,9 +69,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Weight"
+
             android:textSize="20dp"
+
             android:textColor="#ffff"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="90dp"/>
 
         <TextView
             android:layout_width="180dp"
@@ -79,7 +81,7 @@
             android:text="Delete"
             android:textColor="#ffff"
             android:textSize="20dp"
-            android:layout_marginLeft="150dp"/>
+            android:layout_marginLeft="170dp"/>
     </TableRow>
 
     </TableLayout>
@@ -107,13 +109,13 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_below="@+id/remove_stock_button1"
-        android:id="@+id/removestock_list"
+        android:id="@+id/lremove"
         android:layout_marginTop="49dp">
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="394dp"
-            android:id="@+id/list1">
+            android:layout_height="match_parent"
+            android:id="@+id/removestock_list">
         </ListView>
     </LinearLayout>
     <!--<ScrollView-->

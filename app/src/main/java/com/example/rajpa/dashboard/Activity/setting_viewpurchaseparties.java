@@ -1,6 +1,7 @@
 package com.example.rajpa.dashboard.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,11 +49,11 @@ public class setting_viewpurchaseparties extends AppCompatActivity {
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
+                        String id=object.getString("id");
                         String company_name = object.getString("company_name");
                         String name = object.getString("party_1_name");
                         String mobile = object.getString("party_1_mobile");
                         String name_2 = object.getString("party_2_name");
-
                         String mobile_2 = object.getString("party_2_mobile");
                         String email = object.getString("email");
                         String gst_no = object.getString("gst_no");
@@ -61,7 +62,8 @@ public class setting_viewpurchaseparties extends AppCompatActivity {
 
 
                         DataModel model = new DataModel();
-                        String e = edit.getText().toString();
+//                        String e = edit.getText().toString();
+                        model.setId(id);
                         model.setCompany_name(company_name);
                         model.setName(name);
                         model.setName_2(name_2);
@@ -72,7 +74,7 @@ public class setting_viewpurchaseparties extends AppCompatActivity {
                         model.setPan_no(pan_no);
                         model.setAddress(address);
 
-                        model.setEdit(e);
+//                        model.setEdit(e);
 
                         list.add(model);
 
@@ -98,6 +100,14 @@ public class setting_viewpurchaseparties extends AppCompatActivity {
 
         RequestQueue queue= Volley.newRequestQueue(setting_viewpurchaseparties.this);
         queue.add(request);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(setting_viewpurchaseparties.this,Settings.class);
+        startActivity(intent);
+        finish();
+
     }
 
     }

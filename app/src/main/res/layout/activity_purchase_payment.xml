@@ -33,4 +33,26 @@
         android:layout_marginBottom="0dp"
         android:background="#FF9AA7EA"
         android:text="SEARCH"/>
+
+
+    <HorizontalScrollView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/pp_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">           <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/display_button"
+            android:id="@+id/ld"
+            >
+
+            <ListView
+                android:id="@+id/pp_listview_layout"
+                android:layout_width="458dp"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
+
+    </HorizontalScrollView>
 </RelativeLayout>

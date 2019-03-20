@@ -1,10 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Company Name"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Party 1 Name"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Party 2 Name"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Party1 Mobile"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Party2 Mobile"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GST No"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PAN No"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Edit"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="20dp" />-->
+
+        </TableRow>
+    </TableLayout>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
         >
 
         <TableRow
@@ -16,7 +167,7 @@
 
             <TextView
                 android:id="@+id/vp_coname"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Company Name"
 
@@ -32,7 +183,7 @@
 
             <TextView
                 android:id="@+id/vp_pa1name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Party 1 Name"
 
@@ -43,11 +194,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:gravity="center">
+            android:gravity="center" >
 
             <TextView
                 android:id="@+id/vp_pa2name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Party 2 Name"
 
@@ -62,7 +213,7 @@
 
             <TextView
                 android:id="@+id/vp_mo1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Party1 Mobile"
 
@@ -77,7 +228,7 @@
 
             <TextView
                 android:id="@+id/vp_mo2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Party2 Mobile"
 
@@ -88,7 +239,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:gravity="center">
+            android:gravity="center" >
 
             <TextView
                 android:id="@+id/vp_email"
@@ -103,7 +254,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:gravity="center">
+            android:gravity="center" >
 
             <TextView
                 android:id="@+id/vp_gstno"
@@ -118,11 +269,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:gravity="center">
+            android:gravity="center" >
 
             <TextView
                 android:id="@+id/vp_panno"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PAN No"
 
@@ -137,7 +288,7 @@
 
             <TextView
                 android:id="@+id/vp_address"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Address"
 
@@ -150,14 +301,27 @@
 
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/vp_edit"
-                android:layout_width="match_parent"
+
+            <!--<TextView-->
+                <!--android:id="@+id/vp_edit"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Edit"-->
+
+                <!--android:textSize="20dp" />-->
+            <Button
+                android:id="@+id/vp_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit"
+                android:text="Edit" />
 
-                android:textSize="20dp" />
-
+               <Button
+                android:id="@+id/vp_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DELETE"/>
         </TableRow>
+
     </TableLayout>
+
 </RelativeLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.viewsellparties_button"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Company Name"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellcompany"
+        android:layout_below="@id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t2"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Party1 Name"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellparty1"
+        android:layout_below="@id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t3"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Party2 Name"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellparty2"
+        android:layout_below="@id/t3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t4"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Party1 Mobile"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellmo1"
+        android:layout_below="@id/t4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t5"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Party2 Mobile"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellmo2"
+        android:layout_below="@id/t5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t6"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellemail"
+        android:layout_below="@id/t6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t7"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GST NO"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellgstno"
+        android:layout_below="@id/t7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t8"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PAN NO"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updatesellpanno"
+        android:layout_below="@id/t8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/t9"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/updateselladdress"
+        android:layout_below="@id/t9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/updatesellbutton"
+        android:text="update"
+        android:background="#f418b2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    </LinearLayout>
+</ScrollView>

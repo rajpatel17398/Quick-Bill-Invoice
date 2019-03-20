@@ -11,8 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center">
+
         <TextView
-            android:id="@+id/display_company0"
+            android:layout_marginRight="30dp"
+            android:id="@+id/addbfgsmquality_quality"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="#Quality"
@@ -20,23 +22,25 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/addbfgsmquality_bf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginRight="40dp"
             android:text="#bf"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/display_pending0"
+            android:id="@+id/addbfgsmquality_gsm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:text="#gsm"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/addbfgsmquality_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -44,13 +48,14 @@
             android:textColor="@color/black"
             android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:text="#time0000000"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/addbfgsmquality_createdat"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="40dp"-->
+            <!--android:text="#time0000000"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:textSize="20dp" />-->
     </TableRow>
         </TableLayout>
 

@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.example.rajpa.dashboard.Activity.Buy;
 import com.example.rajpa.dashboard.Activity.Display;
 import com.example.rajpa.dashboard.Activity.History;
+import com.example.rajpa.dashboard.Activity.Invoice;
 import com.example.rajpa.dashboard.Activity.Purchase_payment;
 import com.example.rajpa.dashboard.Activity.Sell;
 import com.example.rajpa.dashboard.Activity.Sell_payment;
@@ -30,9 +32,10 @@ import com.example.rajpa.dashboard.Activity.Stock;
 
 public class navigation_dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    CardView buy,sell,stock,display,pp,sp,history,settings;
+    CardView buy,sell,invoice,display,pp,sp,history,settings;
     TextView email;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class navigation_dashboard extends AppCompatActivity
 
         buy=(CardView)findViewById(R.id.buy);
         sell=(CardView)findViewById(R.id.sell);
-        stock=(CardView)findViewById(R.id.stock);
+        invoice=(CardView)findViewById(R.id.Invoice);
         display=(CardView)findViewById(R.id.display);
         pp=(CardView)findViewById(R.id.pp);
         sp=(CardView)findViewById(R.id.sp);
@@ -86,10 +89,10 @@ public class navigation_dashboard extends AppCompatActivity
                 startActivity(i3);
             }
         });
-        stock.setOnClickListener(new View.OnClickListener() {
+        invoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i4=new Intent(navigation_dashboard.this, Stock.class);
+                Intent i4=new Intent(navigation_dashboard.this, Invoice.class);
                 startActivity(i4);
             }
         });
@@ -148,6 +151,7 @@ public class navigation_dashboard extends AppCompatActivity
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -155,6 +159,7 @@ public class navigation_dashboard extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            finishAffinity();
         }
     }
 
@@ -228,4 +233,5 @@ public class navigation_dashboard extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

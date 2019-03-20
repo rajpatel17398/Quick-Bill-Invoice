@@ -2,6 +2,7 @@ package com.example.rajpa.dashboard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -27,7 +29,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     static Spinner s1, s2, s3;
@@ -44,7 +48,7 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
     String choose_quality_URL = "https://rajpatel17398.000webhostapp.com/Addstock%20fetch.php?choose_Quality=choose_Quality";
     String choose_bf_URL = "https://rajpatel17398.000webhostapp.com/Addstock%20fetch.php?choose_bf=choose_bf";
     String choose_gsm_URL = "https://rajpatel17398.000webhostapp.com/Addstock%20fetch.php?choose_gsm=choose_gsm";
-    String URL = "https://rajpatel17398.000webhostapp.com/Addstock fetch.php";
+    String URL = "https://rajpatel17398.000webhostapp.com/Addstock.php";
 
 
     @Override
@@ -91,6 +95,60 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
                 addstock_list.setAdapter(adapter1);
 
                // Toast.makeText(Add_stock.this, spin_quality+"\n"+spin_bf+"\n"+spin_gsm+"\n"+addstock_size+"\n"+addstock_weight, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < list.size(); i++) {
+                    Log.e("TotalData", ">>>>>>" + list.get(i).getGsm());
+                    final String b=list.get(i).getBf();
+                    final String g=list.get(i).getGsm();
+                    final String q=list.get(i).getQuality();
+                    final String s=list.get(i).getSize();
+                    final String w=list.get(i).getWeight();
+                    StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.e("Res",">>>>>>>>"+response);
+                            if (response.trim().equals("success")){
+//                                pd.dismiss();
+
+                                Toast.makeText(Add_stock.this, "Success", Toast.LENGTH_SHORT).show();
+
+//                            Intent intent=new Intent(Sell.this,Add_stock.class);
+//                            startActivity(intent);
+                            }else {
+//                                pd.dismiss();
+                                Toast.makeText(Add_stock.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(Add_stock.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    })
+                    {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String,String>param=new HashMap<>();
+                            param.put("choose_bf",b);
+                            param.put("choose_gsm",g);
+                            param.put("choose_Quality",q);
+                            param.put("add_stock_size",s);
+                            param.put("add_stock_weight",w);
+                            return param;
+                        }
+                    };
+                    RequestQueue queue= Volley.newRequestQueue(Add_stock.this);
+                    queue.add(request);
+
+                }
+
             }
         });
 

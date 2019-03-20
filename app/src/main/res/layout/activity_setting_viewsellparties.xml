@@ -6,155 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.setting_viewsellparties">
 
-    <TableLayout
-        android:id="@+id/viewsellparty_table"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        >
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Company Name"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <!--++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Party 1 Name"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Party 2 Name"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Party1 Mobile"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Party2 Mobile"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GST No"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="PAN No"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Address"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FF5E4D5C"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Edit"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-
-        </TableRow>
-    </TableLayout>
     <!--<ScrollView-->
         <!--android:id="@+id/scrollView"-->
         <!--android:layout_width="fill_parent"-->
@@ -172,9 +24,9 @@
         <!--android:orientation="vertical">-->
 
         <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:id="@+id/horizontalScrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
 
@@ -189,8 +41,6 @@
                     android:layout_height="match_parent">
 
                 </ListView>
-                <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
 
             </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -57,10 +58,13 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
     static Spinner s1;
     String spin_quality;
     EditText e1, e2, e3;
+    List<DataModel> list;
+    ListView addqualitybfgsm_list;
     Button b1;
     List<String> quality_list = new ArrayList<>();
     String choose_quality_URL = "https://rajpatel17398.000webhostapp.com/addqualitybfgsm%20fetch.php?choose_Quality=choose_Quality";
     String URL = "https://rajpatel17398.000webhostapp.com/addqualitybfgsm.php";
+    String URL1 = "https://rajpatel17398.000webhostapp.com/addqualitybfgsm fetch1.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,61 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
         e2 = findViewById(R.id.addqualitybfgsm_gsm);
         e3 = findViewById(R.id.addqualitybfgsm_size);
         b1 = findViewById(R.id.addqualitybfgsm_button);
+        addqualitybfgsm_list=findViewById(R.id.addqualitybfgsm_listview_layout);
+        list=new ArrayList<>();
+
+        StringRequest request = new StringRequest(Request.Method.GET, URL1, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e("Res", ">>>>>>>>" + response);
+
+                try {
+                    JSONArray array = new JSONArray(response);
+
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject object = array.getJSONObject(i);
+                        String quality = object.getString("quality");
+                        String bf=object.getString("bf");
+                        String gsm = object.getString("gsm");
+                        String size = object.getString("size");
+
+
+                        DataModel model = new DataModel();
+                        //   String e = edit.getText().toString();
+                        model.setQuality(quality);
+                        model.setBf(bf);
+                        model.setGsm(gsm);
+                        model.setsize(size);
+
+                        //      model.setEdit(e);
+
+                        list.add(model);
+
+                        setting_addqualitybfgsm_BaseAdapter adapter = new setting_addqualitybfgsm_BaseAdapter(setting_addqualitybfgsm.this, list);
+                        addqualitybfgsm_list.setAdapter(adapter);
+
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(setting_addqualitybfgsm.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                    }
+
+                });
+
+        RequestQueue queue= Volley.newRequestQueue(setting_addqualitybfgsm.this);
+        queue.add(request);
+
 
         choose_quality_spinner();
 

@@ -1,12 +1,23 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.EditText;
 
-public class DataModel {
+import java.util.Random;
+
+@SuppressLint("ParcelCreator")
+public class DataModel  implements Parcelable {
+
 
     String quality,bf,gsm,price,number,party,size,weight,addstock_size,addstock_weight,
             amount_paid,created_at,final_amount,
-            company_name,name,name_2,mobile,mobile_2,email,gst_no,pan_no,address,edit;
+            company_name,name,name_2,mobile,mobile_2,email,gst_no,pan_no,address,edit,id,pending,invoice,sg,cg;
+
+    public DataModel() {
+
+    }
 
     public String getQuality() {
         return quality;
@@ -181,15 +192,39 @@ public class DataModel {
         this.edit = edit;
     }
 
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    public String getPending() {
+        return pending;
+    }
+    public void setPending(String pending) {this.pending = pending; }
 
+    public String getInvoice() {
+        return invoice;
+    }
+    public void setInvoice(String invoice) {this.invoice = invoice; }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
 
+    }
 
+    public void setsgst(String sg) { this.sg=sg;
+    }
+    public String getsgst(){return sg;}
 
-
-
-
+    public void setcgst(String cg) { this.cg=cg;
+    }
+    public String getcgst(){return cg;}
 }
 

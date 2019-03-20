@@ -3,10 +3,175 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TableLayout
+        android:id="@+id/pp_tableview"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Co. Name"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quality"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bf"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gsm"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Paid"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pending"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+        </TableRow>
+        <!--<TableRow-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#FF5E4D5C"-->
+            <!--android:gravity="center">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="VIEW"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="20dp" />-->
+        <!--</TableRow>-->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Address"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="20dp" />-->
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Edit"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="20dp" />-->
+
+        </TableRow>
+    </TableLayout>
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="90dp"
         >
-
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -15,7 +180,23 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pp_coname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#Co.name"
+
+                android:textSize="20dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/pp_quality"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#quality"
 
@@ -30,7 +211,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pp_bf"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#bf"
 
@@ -44,7 +226,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pp_gsm"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#gsm"
 
@@ -58,7 +241,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pp_weight"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#weight"
 
@@ -72,7 +256,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pp_price"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#price"
 
@@ -86,7 +271,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pp_pricepaid"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#price paid"
 
@@ -100,7 +286,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pp_pending"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#pending"
 
@@ -113,13 +300,13 @@
 
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/pp_part2_view"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/pp_part2_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VIEW"
+                android:text="add amount"
 
-                android:textSize="20dp" />
+                />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"

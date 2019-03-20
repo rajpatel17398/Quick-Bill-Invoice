@@ -1,10 +1,16 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.annotation.SuppressLint;
 import android.support.design.widget.TabLayout;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +29,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -35,7 +42,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import com.example.rajpa.dashboard.R;
 
@@ -43,24 +52,32 @@ import com.example.rajpa.dashboard.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Stock extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     static Spinner s2,s3,s4;
     Button b1;
+    List<DataModel>list=new ArrayList<>();
+    DataModel dm;
     List<String> quality_list=new ArrayList<>();
     List<String>bf_list=new ArrayList<>();
     List<String>gsm_list=new ArrayList<>();
     String choose_quality_URL="https://rajpatel17398.000webhostapp.com/stock.php?choose_Quality=choose_Quality";
     String choose_bf_URL="https://rajpatel17398.000webhostapp.com/stock.php?choose_bf=choose_bf";
     String choose_gsm_URL="https://rajpatel17398.000webhostapp.com/stock.php?choose_gsm=choose_gsm";
+        String URL="https://rajpatel17398.000webhostapp.com/stockfinal.php";
+    String URL1="https://rajpatel17398.000webhostapp.com/stockfinal1.php";
     TabLayout tabLayout;
     ViewPager viewPager;
+    FragmentManager fragmentManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_stock);
+        fragmentManager=getSupportFragmentManager();
         s2=(Spinner)findViewById(R.id.quality);
         s2.setOnItemSelectedListener(this);
         s3=(Spinner)findViewById(R.id.bf);
@@ -74,9 +91,96 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
         tabLayout.addTab(tabLayout.newTab().setText("Sell"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        choose_quality_spinner();
+       /* choose_quality_spinner();
         choose_bf_spinner();
-        choose_gsm_spinner();
+        choose_gsm_spinner();*/
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+                    @SuppressLint("ResourceType")
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("Res", ">>>>>>>>" + response);
+
+                        try {
+                            JSONArray array = new JSONArray(response);
+//                            pd.dismiss();
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject object = array.getJSONObject(i);
+
+                                String weight = object.getString("weight");
+                                String price = object.getString("price");
+
+                                Log.e("weight", ">>>>>>>>" + weight);
+                                dm = new DataModel();
+                                dm.setweight(weight);
+                                dm.setPrice(price);
+
+                                list.add(dm);
+
+                                }
+
+                            Stock_fragment1 stock_fragment1 = new Stock_fragment1();
+                            Bundle bundle = new Bundle();
+                              bundle.putSerializable("valuesArray", (Serializable) list);
+                              bundle.putString("12","123");
+                           // bundle.putString("hi", "hi" );
+                            stock_fragment1.setArguments(bundle);
+                            fragmentManager.beginTransaction().replace(R.id.viewPager, stock_fragment1).commit();
+
+//                            Bundle bundle2 = new Bundle();
+//                            bundle2.putString("edttext", "From Activity");
+//// set Fragmentclass Arguments
+//                            Stock_fragment1 fragobj = new Stock_fragment1();
+//                            fragobj.setArguments(bundle2);
+
+
+                            //getSupportFragmentManager().beginTransaction().replace(R.layout.activity_stock, stock_fragment1).commit();
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+
+
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+//                                pd.dismiss();
+                                Toast.makeText(Stock.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> param = new HashMap<>();
+                        param.put("quality", "golden");
+                        param.put("bf", "10");
+                        param.put("gsm", "20");
+
+//                        param.put("cgst_edit_text",cgst.getText().toString());
+//                        param.put("sgst_edit_text",sgst.getText().toString());
+//                        param.put("insu",insu.getText().toString());
+//                        param.put("total",total.getText().toString());
+//                        param.put("cgst_edit_text",mail);
+//                        param.put("cgst_edit_text",mail);
+                        return param;
+                    }
+                };
+
+                RequestQueue queue = Volley.newRequestQueue(Stock.this);
+                queue.add(request);
+
+
+            }
+        });
+
 
         final MyAdapter adapter = new MyAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);

@@ -106,8 +106,40 @@
         android:inputType="numberDecimal"
         android:id="@+id/sellprice"
         />
+        <TextView
+            android:id="@+id/cgst"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="CGST"
+            android:textColor="@color/black"
+            android:layout_marginTop="200dp"
+            />
+        <EditText
+            android:id="@+id/cgst1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="200dp"
+            android:layout_marginRight="300dp"
+            android:layout_alignLeft="@+id/cgst"/>
 
-    <Button
+        <TextView
+            android:id="@+id/sgst"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="SGST"
+            android:textColor="@color/black"
+            android:layout_marginTop="240dp"
+            />
+        <EditText
+            android:id="@+id/sgst1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="240dp"
+            android:layout_marginRight="300dp"
+            android:layout_alignLeft="@+id/sgst"/>
+
+
+        <Button
         android:id="@+id/sellbutton2"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -249,10 +281,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="100dp"
         android:layout_marginTop="50dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/capsual_shape"
         android:text="SUBMIT AND GENERATE INVOICE"
         android:textColor="#ffffff"
-        android:textSize="22dp" />
+        android:textSize="15dp" />
 
 
 
