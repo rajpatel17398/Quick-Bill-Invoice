@@ -38,13 +38,15 @@
         android:textAlignment="gravity"
         android:inputType="textWebPassword"/>
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/registration_button"
         android:layout_below="@+id/registration_password"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="130dp"
         android:text="Submit"
-        android:background="@color/colorAccent"
+        android:textColor="#ffff"
+        android:background="@drawable/capsual_shape"
         android:gravity="center"
         />
 

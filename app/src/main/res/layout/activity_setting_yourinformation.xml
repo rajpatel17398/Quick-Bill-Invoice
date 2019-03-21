@@ -48,11 +48,13 @@
     <Button
         android:id="@+id/your_information_button"
         android:layout_below="@+id/your_information_companyemail"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:layout_marginLeft="130dp"
+        android:text="update"
+        android:textColor="#ffff"
         android:layout_marginTop="50dp"
-        android:background="#f1f1"
+        android:background="@drawable/capsual_shape"
         />
 
 </RelativeLayout>

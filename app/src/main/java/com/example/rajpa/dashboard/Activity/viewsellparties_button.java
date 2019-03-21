@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class viewsellparties_button extends AppCompatActivity {
         EditText e1,e2,e3,e4,e5,e6,e7,e8,e9;
         String id;
         Button b1;
+    ProgressDialog pd;
     String URL= "https://rajpatel17398.000webhostapp.com/updatesell.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class viewsellparties_button extends AppCompatActivity {
         e4=findViewById(R.id.updatesellmo1);
         e5=findViewById(R.id.updatesellmo2);
         e6=findViewById(R.id.updatesellemail);
+        pd=new ProgressDialog(viewsellparties_button.this);
+        pd.setMessage("Loading..");
         e7=findViewById(R.id.updatesellgstno);
         e8=findViewById(R.id.updatesellpanno);
         e9=findViewById(R.id.updateselladdress);
@@ -63,6 +67,7 @@ public class viewsellparties_button extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.show();
                 StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -71,20 +76,23 @@ public class viewsellparties_button extends AppCompatActivity {
 
 
                             Toast.makeText(viewsellparties_button.this, "Success", Toast.LENGTH_SHORT).show();
-
+                            pd.dismiss();
                             Intent intent22=new Intent(viewsellparties_button.this,setting_viewsellparties.class);
                             startActivity(intent22);
                         }else {
 
+
                             Toast.makeText(viewsellparties_button.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                            pd.dismiss();
                         }
+
 
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(viewsellparties_button.this, error.toString(), Toast.LENGTH_SHORT).show();
-
+                        pd.dismiss();
                     }
                 })
                 {
@@ -118,6 +126,14 @@ public class viewsellparties_button extends AppCompatActivity {
 
         });
 }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(viewsellparties_button.this,setting_viewsellparties.class);
+        startActivity(intent);
+        finish();
+
+    }
 }
 
 

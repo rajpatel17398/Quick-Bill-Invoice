@@ -33,7 +33,7 @@
     android:layout_height="wrap_content"
     android:text="Delete"
     android:background="#f50d05"
-        android:textColor="#ed6ae5"
+        android:textColor="#ffff"
     android:layout_marginLeft="150dp"/>
     </TableRow>
 

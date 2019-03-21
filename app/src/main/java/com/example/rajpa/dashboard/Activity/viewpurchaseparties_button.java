@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class viewpurchaseparties_button extends AppCompatActivity {
     EditText e11,e12,e13,e14,e15,e16,e17,e18,e19;
     Button b5;
     String id;
+    ProgressDialog pd;
     String URL= "https://rajpatel17398.000webhostapp.com/update purchase parties.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class viewpurchaseparties_button extends AppCompatActivity {
         e16=findViewById(R.id.updatepurchaseemail);
         e17=findViewById(R.id.updatepurchasegstno);
         e18=findViewById(R.id.updatepurchasepanno);
+        pd=new ProgressDialog(viewpurchaseparties_button.this);
+        pd.setMessage("Loading..");
         e19=findViewById(R.id.updatepurchaseaddress);
         b5=findViewById(R.id.updatepurchasebutton);
 
@@ -64,7 +68,7 @@ public class viewpurchaseparties_button extends AppCompatActivity {
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                pd.show();
                 StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -73,7 +77,7 @@ public class viewpurchaseparties_button extends AppCompatActivity {
 
 
                             Toast.makeText(viewpurchaseparties_button.this, "Success", Toast.LENGTH_SHORT).show();
-
+                            pd.dismiss();
                             Intent intent25=new Intent(viewpurchaseparties_button.this,setting_viewpurchaseparties.class);
                             startActivity(intent25);
 
@@ -82,6 +86,7 @@ public class viewpurchaseparties_button extends AppCompatActivity {
                         }else {
 
                             Toast.makeText(viewpurchaseparties_button.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                            pd.dismiss();
                         }
 
                     }
@@ -89,7 +94,7 @@ public class viewpurchaseparties_button extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(viewpurchaseparties_button.this, error.toString(), Toast.LENGTH_SHORT).show();
-
+                        pd.dismiss();
                     }
                 })
                 {
@@ -118,4 +123,13 @@ public class viewpurchaseparties_button extends AppCompatActivity {
 
         });
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(viewpurchaseparties_button.this,setting_viewpurchaseparties.class);
+        startActivity(intent);
+        finish();
+
+    }
+
 }

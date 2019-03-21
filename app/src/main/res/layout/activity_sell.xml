@@ -111,6 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="CGST"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="200dp"
             />
@@ -118,7 +119,7 @@
             android:id="@+id/cgst1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="215dp"
             android:layout_marginRight="300dp"
             android:layout_alignLeft="@+id/cgst"/>
 
@@ -127,14 +128,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="SGST"
+            android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="260dp"
             />
         <EditText
             android:id="@+id/sgst1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="275dp"
             android:layout_marginRight="300dp"
             android:layout_alignLeft="@+id/sgst"/>
 

@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Company Name"
+                android:text="Company"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Party 1 Name"
+                android:text="Party 1"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Party 2 Name"
+                android:text="Mobile"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Party1 Mobile"
+                android:text="Party 2"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
@@ -76,7 +76,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Party2 Mobile"
+                android:text="Mobile"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
@@ -197,7 +197,8 @@
             android:gravity="center" >
 
             <TextView
-                android:id="@+id/vp_pa2name"
+                android:id="@+id/vp_mo1"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Party 2 Name"
@@ -212,7 +213,8 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/vp_mo1"
+                android:id="@+id/vp_pa2name"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Party1 Mobile"
@@ -313,13 +315,18 @@
                 android:id="@+id/vp_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:textColor="#fff"
                 android:text="Edit" />
 
                <Button
                 android:id="@+id/vp_button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DELETE"/>
+                   android:layout_marginLeft="10dp"
+                   android:textColor="#fff"
+                android:text="DELETE"
+                   android:background="#c1f40111"/>
         </TableRow>
 
     </TableLayout>

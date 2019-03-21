@@ -80,11 +80,13 @@
     <Button
         android:id="@+id/sellparties_button"
         android:layout_below="@+id/sellparties_address"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Submit"
+        android:layout_marginLeft="130dp"
+        android:textColor="#ffff"
         android:layout_marginTop="50dp"
-        android:background="#e711ff"
+        android:background="@drawable/capsual_shape"
         />
 
 </RelativeLayout>

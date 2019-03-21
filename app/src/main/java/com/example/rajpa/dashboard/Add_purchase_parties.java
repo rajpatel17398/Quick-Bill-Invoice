@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +15,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.rajpa.dashboard.Activity.Buy;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Add_purchase_parties extends AppCompatActivity {
     EditText e1,e2,e3,e4,e5,e6,e7,e8,e9;
+    ProgressDialog pd;
     Button b3;
     String URL="https://rajpatel17398.000webhostapp.com/add purchase_parties.php";
 
@@ -28,6 +31,9 @@ public class Add_purchase_parties extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_purchase_parties);
+        pd=new ProgressDialog(Add_purchase_parties.this);
+        pd.setMessage("Loading..");
+        pd.setCancelable(false);
 
         e1=findViewById(R.id.purchaseparties_companyname);
         e2=findViewById(R.id.purchaseparties_party1name);
@@ -43,17 +49,18 @@ public class Add_purchase_parties extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.show();
                 StringRequest request=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.trim().equals("success")){
-//                            pd.dismiss();
+                            pd.dismiss();
                             Toast.makeText(Add_purchase_parties.this, "Success", Toast.LENGTH_SHORT).show();
 
 //                            Intent intent=new Intent(Add_sell_parties.this,Add_stock.class);
 //                            startActivity(intent);
                         }else {
-//                            pd.dismiss();
+                            pd.dismiss();
                             Toast.makeText(Add_purchase_parties.this, "Something Wrong", Toast.LENGTH_SHORT).show();
                         }
 
@@ -61,7 +68,7 @@ public class Add_purchase_parties extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-//                        pd.dismiss();
+                        pd.dismiss();
                         Toast.makeText(Add_purchase_parties.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                     }

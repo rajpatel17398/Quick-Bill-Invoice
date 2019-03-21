@@ -46,25 +46,36 @@
             android:hint="Password"
             android:inputType="textWebPassword" />
 
-        <com.spark.submitbutton.SubmitButton
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="161dp"
-            android:layout_below="@+id/editText2"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="169dp"
-            android:layout_marginEnd="110dp"
-            android:layout_marginRight="110dp"
-            android:layout_marginBottom="0dp"
-            android:text="Login"
-            android:textColor="@color/gray"
-            app:sub_btn_background="@color/white"
-            app:sub_btn_duration="2200"
-            app:sub_btn_line_color="@color/colorAccent"
-            app:sub_btn_ripple_color="@color/colorAccent"
-            app:sub_btn_tick_color="@color/white" />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_button"
+            android:background="@drawable/capsual_shape"
+            android:layout_below="@id/editText2"
+            android:layout_marginTop="20dp"
+            android:textColor="#ffff"
+            android:layout_marginLeft="150dp"
+            android:text="login"/>
+
+        <!--<com.spark.submitbutton.SubmitButton-->
+            <!--android:id="@+id/button"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="161dp"-->
+            <!--android:layout_below="@+id/editText2"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginTop="169dp"-->
+            <!--android:layout_marginEnd="110dp"-->
+            <!--android:layout_marginRight="110dp"-->
+            <!--android:layout_marginBottom="0dp"-->
+            <!--android:text="Login"-->
+            <!--android:textColor="@color/gray"-->
+            <!--app:sub_btn_background="@color/white"-->
+            <!--app:sub_btn_duration="2200"-->
+            <!--app:sub_btn_line_color="@color/colorAccent"-->
+            <!--app:sub_btn_ripple_color="@color/colorAccent"-->
+            <!--app:sub_btn_tick_color="@color/white" />-->
 
         <!--<com.unstoppable.submitbuttonview.SubmitButton-->
             <!--android:id="@+id/login_button1"-->

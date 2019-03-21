@@ -120,9 +120,10 @@
     <Button
         android:id="@+id/updatepurchasebutton"
         android:text="update"
-        android:background="#7e6476"
-        android:layout_width="match_parent"
+        android:background="@drawable/capsual_shape"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
         />
 </LinearLayout>
 </ScrollView>

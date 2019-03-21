@@ -29,7 +29,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="129dp"
-        android:background="#FF828EDC"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
         android:text="Search"
         tools:layout_editor_absoluteX="132dp"
         tools:layout_editor_absoluteY="116dp" />

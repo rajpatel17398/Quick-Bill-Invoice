@@ -38,6 +38,10 @@ public class Invoice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invoice);
         Invoice_list=findViewById(R.id.invoice_list);
+        pd=new ProgressDialog(Invoice.this);
+        pd.setMessage("Loading..");
+        pd.setCancelable(false);
+        pd.show();
         list=new ArrayList<>();
 
 
@@ -49,7 +53,7 @@ public class Invoice extends AppCompatActivity {
 
                 try {
                     JSONArray array = new JSONArray(response);
-
+                    pd.dismiss();
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
 
@@ -84,6 +88,7 @@ public class Invoice extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        pd.dismiss();
                         Toast.makeText(Invoice.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                     }

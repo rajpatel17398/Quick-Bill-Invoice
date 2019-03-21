@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,9 +7,47 @@
     android:layout_height="match_parent"
     tools:context=".Activity.Invoice">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Invoice"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Co.Name"
+        android:layout_marginLeft="90dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Time"
+        android:layout_marginLeft="250dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        />
+    <!--<HorizontalScrollView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="horizontal"-->
+        <!--&gt;-->
+
     <ListView
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/invoice_list"/>
+    <!--</LinearLayout>-->
+    <!--</HorizontalScrollView>-->
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

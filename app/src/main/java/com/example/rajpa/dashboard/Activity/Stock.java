@@ -1,6 +1,7 @@
 package com.example.rajpa.dashboard.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.support.design.widget.TabLayout;
 
 import android.support.v4.app.Fragment;
@@ -57,6 +58,7 @@ import java.util.Map;
 public class Stock extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     static Spinner s2,s3,s4;
     Button b1;
+    ProgressDialog pd;
     List<DataModel>list=new ArrayList<>();
     DataModel dm;
     List<String> quality_list=new ArrayList<>();
@@ -75,10 +77,13 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_stock);
         fragmentManager=getSupportFragmentManager();
         s2=(Spinner)findViewById(R.id.quality);
+        pd=new ProgressDialog(Stock.this);
+        pd.setMessage("Loading..");
+        pd.setCancelable(false);
+        pd.show();
         s2.setOnItemSelectedListener(this);
         s3=(Spinner)findViewById(R.id.bf);
         s3.setOnItemSelectedListener(this);
@@ -107,7 +112,7 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
 
                         try {
                             JSONArray array = new JSONArray(response);
-//                            pd.dismiss();
+                            pd.dismiss();
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject object = array.getJSONObject(i);
 
@@ -151,7 +156,7 @@ public class Stock extends AppCompatActivity implements AdapterView.OnItemSelect
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-//                                pd.dismiss();
+                                pd.dismiss();
                                 Toast.makeText(Stock.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                             }

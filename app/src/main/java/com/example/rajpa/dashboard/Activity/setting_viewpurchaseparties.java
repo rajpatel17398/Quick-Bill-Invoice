@@ -37,6 +37,10 @@ public class setting_viewpurchaseparties extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_viewpurchaseparties);
         Setting_list1=findViewById(R.id.viewpurchaseparties_list);
+
+        pd=new ProgressDialog(setting_viewpurchaseparties.this);
+        pd.setMessage("Loading..");
+        pd.show();
         list=new ArrayList<>();
         StringRequest request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
 
@@ -46,7 +50,7 @@ public class setting_viewpurchaseparties extends AppCompatActivity {
 
                 try {
                     JSONArray array = new JSONArray(response);
-
+                    pd.dismiss();
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
                         String id=object.getString("id");

@@ -36,7 +36,12 @@ public class setting_viewsellparties extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_setting_viewsellparties);
+
+        pd=new ProgressDialog(setting_viewsellparties.this);
+        pd.setMessage("Loading..");
+        pd.show();
         Setting_list=findViewById(R.id.viewsellparty_listview);
         list=new ArrayList<>();
 
@@ -49,7 +54,7 @@ public class setting_viewsellparties extends AppCompatActivity {
 
                 try {
                     JSONArray array = new JSONArray(response);
-
+                    pd.dismiss();
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
                         String id=object.getString("id");

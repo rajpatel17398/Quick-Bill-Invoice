@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import java.util.Map;
 
 public class setting_yourinformation extends AppCompatActivity {
     EditText e1, e2, e3, e4, e5;
+    ProgressDialog pd;
     Button b1;
     String URL = "https://rajpatel17398.000webhostapp.com/yourinformation.php";
 
@@ -32,6 +34,9 @@ public class setting_yourinformation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_yourinformation);
+
+        pd=new ProgressDialog(setting_yourinformation.this);
+        pd.setMessage("Loading..");
 
         e1 = findViewById(R.id.your_information_companyname);
         e2 = findViewById(R.id.your_information_companyaddress);
@@ -43,6 +48,7 @@ public class setting_yourinformation extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.show();
                 String name = e1.getText().toString();
                 String address = e2.getText().toString();
                 String number = e3.getText().toString();
@@ -50,12 +56,16 @@ public class setting_yourinformation extends AppCompatActivity {
 
 
                 if (TextUtils.isEmpty(name)) {
+                    pd.dismiss();
                     Toast.makeText(setting_yourinformation.this, "Fill Company Name", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(address)) {
+                    pd.dismiss();
                     Toast.makeText(setting_yourinformation.this, "Fill Company Address", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(number)) {
+                    pd.dismiss();
                     Toast.makeText(setting_yourinformation.this, "Fill Company Number", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(email)) {
+                    pd.dismiss();
                     Toast.makeText(setting_yourinformation.this, "Fill Password", Toast.LENGTH_LONG).show();
                 } else {
 //                    Toast.makeText(registration.this, "Submitted", Toast.LENGTH_LONG).show();
@@ -70,10 +80,11 @@ public class setting_yourinformation extends AppCompatActivity {
                         public void onResponse(String response) {
                             if (response.trim().equals("success")) {
                                 Toast.makeText(setting_yourinformation.this, "Success", Toast.LENGTH_SHORT).show();
-
+                                pd.dismiss();
                                 Intent intent = new Intent(setting_yourinformation.this, navigation_dashboard.class);
                                 startActivity(intent);
                             } else {
+                                pd.dismiss();
                                 Toast.makeText(setting_yourinformation.this, "Something Wrong", Toast.LENGTH_SHORT).show();
                             }
 
@@ -81,6 +92,7 @@ public class setting_yourinformation extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            pd.dismiss();
                             Toast.makeText(setting_yourinformation.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                         }
@@ -105,6 +117,14 @@ public class setting_yourinformation extends AppCompatActivity {
 
 
         });
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(setting_yourinformation.this,Settings.class);
+        startActivity(intent);
+        finish();
+
     }
 }
 

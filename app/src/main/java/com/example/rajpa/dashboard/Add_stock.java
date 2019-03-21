@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +40,7 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
     EditText addstock_size, addstock_weight;
     Button b1, b2;
     DataModel dataModel;
+    ProgressDialog pd;
     ListView addstock_list;
     List<DataModel>list;
     List<String> quality_list = new ArrayList<>();
@@ -56,6 +58,10 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_stock);
         addstock_list=findViewById(R.id.addstock_list);
+        pd=new ProgressDialog(Add_stock.this);
+        pd.setMessage("Loading..");
+//        pd.setCancelable(false);
+        pd.show();
         s1 = (Spinner) findViewById(R.id.add_stock_qualityspinner);
         s1.setOnItemSelectedListener(this);
         s2 = (Spinner) findViewById(R.id.add_stock_bfspinner);
@@ -101,6 +107,7 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.show();
                 for (int i = 0; i < list.size(); i++) {
                     Log.e("TotalData", ">>>>>>" + list.get(i).getGsm());
                     final String b=list.get(i).getBf();
@@ -113,14 +120,14 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
                         public void onResponse(String response) {
                             Log.e("Res",">>>>>>>>"+response);
                             if (response.trim().equals("success")){
-//                                pd.dismiss();
+                                pd.dismiss();
 
                                 Toast.makeText(Add_stock.this, "Success", Toast.LENGTH_SHORT).show();
 
 //                            Intent intent=new Intent(Sell.this,Add_stock.class);
 //                            startActivity(intent);
                             }else {
-//                                pd.dismiss();
+                                pd.dismiss();
                                 Toast.makeText(Add_stock.this, "Something Wrong", Toast.LENGTH_SHORT).show();
                             }
 
@@ -128,6 +135,7 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            pd.dismiss();
                             Toast.makeText(Add_stock.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                         }
@@ -164,6 +172,7 @@ public class Add_stock extends AppCompatActivity implements AdapterView.OnItemSe
             public void onResponse(String response) {
                 try {
                     JSONArray array = new JSONArray(response);
+                    pd.dismiss();
                     quality_list.add("Choose_quality");
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);

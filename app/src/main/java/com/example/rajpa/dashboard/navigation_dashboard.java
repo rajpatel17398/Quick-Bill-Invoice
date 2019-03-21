@@ -19,6 +19,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.rajpa.dashboard.Activity.Buy;
 import com.example.rajpa.dashboard.Activity.Display;
@@ -30,8 +31,9 @@ import com.example.rajpa.dashboard.Activity.Sell_payment;
 import com.example.rajpa.dashboard.Activity.Settings;
 import com.example.rajpa.dashboard.Activity.Stock;
 
-public class navigation_dashboard extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class navigation_dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private  DrawerLayout drawer;
     CardView buy,sell,invoice,display,pp,sp,history,settings;
     TextView email;
 
@@ -122,8 +124,7 @@ public class navigation_dashboard extends AppCompatActivity
 
 
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -133,11 +134,14 @@ public class navigation_dashboard extends AppCompatActivity
 //                        .setAction("Action", null).show();
 //            }
 //        });
-
+//        Toolbar toolbar =  findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        Toolbar toolbar;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle
+                ( this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+//        this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+
         drawer.addDrawerListener(toggle);
 
         toggle.syncState();
@@ -146,12 +150,15 @@ public class navigation_dashboard extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
         email=(TextView)headerView.findViewById(R.id.email);
-        
+
         email.setText(ee);
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    private void setSupportActionBar(Toolbar toolbar) {
+    }
+
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -159,6 +166,7 @@ public class navigation_dashboard extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+//            Toast.makeText(navigation_dashboard.this,"press exit again",Toast.LENGTH_LONG).show();
             finishAffinity();
         }
     }

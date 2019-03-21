@@ -42,7 +42,7 @@ public class Display_BaseAdapter extends BaseAdapter {
 
         convertView=inflater.inflate(R.layout.display_listview_layout,null);
         TextView txt1=convertView.findViewById(R.id.di_coname);
-        TextView txt2=convertView.findViewById(R.id.di_buydate);
+//        TextView txt2=convertView.findViewById(R.id.di_buydate);
         TextView txt3=convertView.findViewById(R.id.di_quality);
         TextView txt4=convertView.findViewById(R.id.di_bf);
         TextView txt5=convertView.findViewById(R.id.di_gsm);
@@ -51,7 +51,7 @@ public class Display_BaseAdapter extends BaseAdapter {
 
         DataModel dm=list.get(position);
         txt1.setText(dm.getCompany_name());
-        txt2.setText(dm.getCreated_at());
+//        txt2.setText(dm.getCreated_at());
         txt3.setText(dm.getQuality());
         txt4.setText(dm.getBf());
         txt5.setText(dm.getGsm());

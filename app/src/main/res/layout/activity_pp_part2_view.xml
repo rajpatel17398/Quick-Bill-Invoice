@@ -149,7 +149,8 @@
             android:layout_below="@+id/pp_view_add"
             android:text="SUBMIT"
             android:layout_marginLeft="160dp"
-            android:background="#15d7ca"/>
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"/>
 
 
 

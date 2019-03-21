@@ -71,7 +71,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         pd=new ProgressDialog(Sell.this);
         pd.setMessage("Loading..");
         pd.setCancelable(false);
-//        pd.show();
+        pd.show();
         invoice1=findViewById(R.id.invoice1);
         sellprice=findViewById(R.id.sellprice);
         cgst=findViewById(R.id.cgst1);
@@ -141,7 +141,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                pd.show();
+                pd.show();
                 if (c1.isChecked()) {
                      check = "1";
                     Toast.makeText(Sell.this, "check box is checked", Toast.LENGTH_SHORT).show();
@@ -173,15 +173,16 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
 //                            startActivity(intent);
                             }else {
                                 pd.dismiss();
-                                invoice=response.toString();
+                                invoice = response.toString();
                                 invoice1.setText(invoice);
 
 
                                 Toast.makeText(Sell.this, "Success", Toast.LENGTH_SHORT).show();
 
-                                Intent intent=new Intent(Sell.this,sell_part2.class);
-                                intent.putExtra("invoice",invoice);
-                                startActivity(intent);
+//                                Intent intent=new Intent(Sell.this,sell_part2.class);
+//                                intent.putExtra("invoice",invoice);
+//                                startActivity(intent);
+//                            }}
                             }
 
                         }

@@ -1,5 +1,6 @@
 package com.example.rajpa.dashboard.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -60,6 +61,7 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
     EditText e1, e2, e3;
     List<DataModel> list;
     ListView addqualitybfgsm_list;
+    ProgressDialog pd;
     Button b1;
     List<String> quality_list = new ArrayList<>();
     String choose_quality_URL = "https://rajpatel17398.000webhostapp.com/addqualitybfgsm%20fetch.php?choose_Quality=choose_Quality";
@@ -75,6 +77,10 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
         s1.setOnItemSelectedListener(this);
         e1 = findViewById(R.id.addqualitybfgsm_bf);
         e2 = findViewById(R.id.addqualitybfgsm_gsm);
+
+        pd=new ProgressDialog(setting_addqualitybfgsm.this);
+        pd.setMessage("Loading..");
+        pd.show();
         e3 = findViewById(R.id.addqualitybfgsm_size);
         b1 = findViewById(R.id.addqualitybfgsm_button);
         addqualitybfgsm_list=findViewById(R.id.addqualitybfgsm_listview_layout);
@@ -88,7 +94,7 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
 
                 try {
                     JSONArray array = new JSONArray(response);
-
+                    pd.dismiss();
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
                         String quality = object.getString("quality");
@@ -253,6 +259,15 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(setting_addqualitybfgsm.this,Settings.class);
+        startActivity(intent);
+        finish();
 
     }
 }
