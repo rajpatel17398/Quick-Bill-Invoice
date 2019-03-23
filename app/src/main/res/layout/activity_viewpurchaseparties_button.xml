@@ -121,9 +121,10 @@
         android:id="@+id/updatepurchasebutton"
         android:text="update"
         android:background="@drawable/capsual_shape"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
+        android:textColor="#ffff"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="130dp"
         />
 </LinearLayout>
 </ScrollView>

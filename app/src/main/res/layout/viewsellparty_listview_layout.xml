@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TableLayout
-        android:id="@+id/viewsellparty_table"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         >
@@ -14,14 +13,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Company"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <!--++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -29,129 +28,129 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Party 1"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mobile"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Party 2 "
-
+                android:text="Party 2"
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mobile"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="GST No"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="PAN No"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:background="#FF5E4D5C"
             android:gravity="center">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Address"
-
+                android:textColor="#ffffff"
                 android:textSize="20dp" />
         </TableRow>
-        <!--<TableRow-->
-            <!--android:layout_width="wrap_content"-->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FF5E4D5C"
+            android:gravity="center">
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="#FF5E4D5C"-->
-            <!--android:gravity="center">-->
+            <!--android:text="Edit"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="20dp" />-->
 
-            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:text="Edit"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:textColor="#ffffff"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:textSize="20dp" />&ndash;&gt;-->
-
-        <!--</TableRow>-->
+        </TableRow>
     </TableLayout>
     <TableLayout
         android:layout_marginLeft="150dp"
@@ -322,6 +321,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#c1f40111"
+                android:layout_marginLeft="10dp"
 android:textColor="#fff"
                 android:text="DELETE"
                 tools:ignore="NotSibling" />
