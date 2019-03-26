@@ -33,7 +33,7 @@ public class Add_purchase_parties extends AppCompatActivity {
         setContentView(R.layout.activity_add_purchase_parties);
         pd=new ProgressDialog(Add_purchase_parties.this);
         pd.setMessage("Loading..");
-        pd.setCancelable(false);
+
 
         e1=findViewById(R.id.purchaseparties_companyname);
         e2=findViewById(R.id.purchaseparties_party1name);

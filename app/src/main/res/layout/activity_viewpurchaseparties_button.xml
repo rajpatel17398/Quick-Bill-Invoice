@@ -55,6 +55,8 @@
     <EditText
         android:id="@+id/updatepurchasemo1"
         android:layout_below="@id/t4"
+        android:maxLength="10"
+        android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
@@ -67,6 +69,8 @@
     <EditText
         android:id="@+id/updatepurchasemo2"
         android:layout_below="@id/t5"
+        android:maxLength="10"
+        android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView

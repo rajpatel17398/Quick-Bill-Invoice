@@ -70,7 +70,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
 
         pd=new ProgressDialog(Sell.this);
         pd.setMessage("Loading..");
-        pd.setCancelable(false);
+
         pd.show();
         invoice1=findViewById(R.id.invoice1);
         sellprice=findViewById(R.id.sellprice);
@@ -144,7 +144,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                 pd.show();
                 if (c1.isChecked()) {
                      check = "1";
-                    Toast.makeText(Sell.this, "check box is checked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Sell.this, "Mail is sending", Toast.LENGTH_SHORT).show();
                 } else {
                      check = "0";
                 }
@@ -189,6 +189,7 @@ public class Sell extends AppCompatActivity implements AdapterView.OnItemSelecte
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            pd.dismiss();
                             Toast.makeText(Sell.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                         }

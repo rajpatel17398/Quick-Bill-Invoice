@@ -121,6 +121,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="215dp"
             android:layout_marginRight="300dp"
+            android:inputType="numberDecimal"
             android:layout_alignLeft="@+id/cgst"/>
 
         <TextView
@@ -137,6 +138,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="275dp"
+            android:inputType="numberDecimal"
             android:layout_marginRight="300dp"
             android:layout_alignLeft="@+id/sgst"/>
 

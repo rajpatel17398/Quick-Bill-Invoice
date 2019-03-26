@@ -51,7 +51,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         pd=new ProgressDialog(login.this);
         pd.setMessage("Loading..");
-        pd.setCancelable(false);
+
         e1=(EditText)findViewById(R.id.editText);
         e2=(EditText)findViewById(R.id.editText2);
 

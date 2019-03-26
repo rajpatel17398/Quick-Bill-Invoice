@@ -33,7 +33,7 @@ public class Add_sell_parties extends AppCompatActivity {
         setContentView(R.layout.activity_add_sell_parties);
         pd=new ProgressDialog(Add_sell_parties.this);
         pd.setMessage("Loading..");
-        pd.setCancelable(false);
+
         e1=findViewById(R.id.sellparties_companyname);
         e2=findViewById(R.id.sellparties_party1name);
         e3=findViewById(R.id.sellparties_mobile);

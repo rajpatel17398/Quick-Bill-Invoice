@@ -69,7 +69,7 @@ public class Buy extends AppCompatActivity implements AdapterView.OnItemSelected
 
         pd=new ProgressDialog(Buy.this);
         pd.setMessage("Loading..");
-        pd.setCancelable(false);
+
         pd.show();
         g1 = (GridLayout) findViewById(R.id.grid);
         s1 = (Spinner) findViewById(R.id.choose_party);
