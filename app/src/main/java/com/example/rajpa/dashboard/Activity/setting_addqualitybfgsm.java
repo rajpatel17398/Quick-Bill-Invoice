@@ -145,6 +145,7 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
 
             @Override
             public void onClick(View v) {
+                pd.show();
 
 
                 final String bf = e1.getText().toString();
@@ -154,14 +155,17 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
                 if (TextUtils.isEmpty(bf))
 
                 {
+                    pd.dismiss();
                     Toast.makeText(setting_addqualitybfgsm.this, "Fill bf", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(gsm))
 
                 {
+                    pd.dismiss();
                     Toast.makeText(setting_addqualitybfgsm.this, "Fill gsm", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(size))
 
                 {
+                    pd.dismiss();
                     Toast.makeText(setting_addqualitybfgsm.this, "Fill size", Toast.LENGTH_LONG).show();
                 } else {
 //
@@ -170,11 +174,13 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
                         public void onResponse(String response) {
                             Log.e("Res",">>>>>>>>"+response);
                             if (response.trim().equals("success")) {
+                                pd.dismiss();
                                 Toast.makeText(setting_addqualitybfgsm.this, "Success", Toast.LENGTH_SHORT).show();
 
 //                                Intent intent = new Intent(setting_addqualitybfgsm.this, setting_addqualitybfgsm.class);
 //                                startActivity(intent);
                             } else {
+                                pd.dismiss();
                                 Toast.makeText(setting_addqualitybfgsm.this, "Something Wrong", Toast.LENGTH_SHORT).show();
                             }
 
@@ -183,6 +189,7 @@ public class setting_addqualitybfgsm extends AppCompatActivity implements Adapte
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
+                                    pd.dismiss();
                                     Toast.makeText(setting_addqualitybfgsm.this, error.toString(), Toast.LENGTH_SHORT).show();
 
                                 }

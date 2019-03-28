@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rajpa.dashboard.R;
+import com.example.rajpa.dashboard.navigation_dashboard;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -300,6 +301,14 @@ public class Purchase_payment extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(Purchase_payment.this,navigation_dashboard.class);
+        startActivity(intent);
+        finish();
 
     }
 

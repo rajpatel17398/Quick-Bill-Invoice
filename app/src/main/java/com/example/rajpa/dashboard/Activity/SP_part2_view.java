@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rajpa.dashboard.R;
+import com.example.rajpa.dashboard.navigation_dashboard;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -99,6 +100,14 @@ public class SP_part2_view extends AppCompatActivity {
 
 
         });
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(SP_part2_view.this,Sell_payment.class);
+        startActivity(intent);
+        finish();
 
     }
 }

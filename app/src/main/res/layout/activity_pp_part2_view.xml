@@ -137,6 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/pp_table2"
             android:hint="ADD"
+            android:inputType="numberDecimal"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="50dp"

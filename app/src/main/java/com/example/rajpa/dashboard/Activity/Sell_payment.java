@@ -1,6 +1,7 @@
 package com.example.rajpa.dashboard.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rajpa.dashboard.R;
+import com.example.rajpa.dashboard.navigation_dashboard;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -210,7 +212,14 @@ public class Sell_payment extends AppCompatActivity {
 //                Intent i3=new Intent(Purchase_payment.this, PP_part2.class);
 //                startActivity(i3);
 }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(Sell_payment.this,navigation_dashboard.class);
+        startActivity(intent);
+        finish();
 
+    }
 
     }
 

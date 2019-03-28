@@ -26,6 +26,8 @@
         android:layout_below="@+id/your_information_companyaddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:maxLength="10"
         android:layout_marginTop="10dp"
         android:hint="Company Number1"/>
 
@@ -34,6 +36,8 @@
         android:layout_below="@+id/your_information_companynumber1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:maxLength="10"
         android:layout_marginTop="10dp"
         android:hint="Company Number2"/>
 
